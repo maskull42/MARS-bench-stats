@@ -1,5 +1,7 @@
 # MARS-Bench Statistical Replication Package
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20067936.svg)](https://doi.org/10.5281/zenodo.20067936)
+
 This repository contains the publication-safe data export, statistical code,
 and final measurement outputs for the MARS-Bench agentic digital humanities
 benchmark analysis prepared on 2026-05-07.
@@ -98,6 +100,20 @@ data/mars_bench_stats_public.sqlite
 The private working database is not distributed. Its source filename and
 SHA-256 hash are recorded in `publication_export_metadata` inside the public
 database so the export can be audited without exposing a local machine path.
+
+## Citation
+
+For the archived `v2026.05.07` release, cite the Zenodo version DOI:
+
+```text
+https://doi.org/10.5281/zenodo.20067936
+```
+
+The GitHub release archived by Zenodo is:
+
+```text
+https://github.com/maskull42/MARS-bench-stats/releases/tag/v2026.05.07
+```
 
 ## Statistical Measurements
 

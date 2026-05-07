@@ -5,7 +5,8 @@ version: "2026.05.07"
 date-released: "2026-05-07"
 license: "MIT"
 repository-code: "https://github.com/maskull42/MARS-bench-stats"
+doi: "10.5281/zenodo.20067936"
+url: "https://doi.org/10.5281/zenodo.20067936"
 authors:
   - family-names: "Elrod"
     given-names: "Andrew"
-
