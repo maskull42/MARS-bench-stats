@@ -1424,9 +1424,9 @@
     "release_status": "candidate",
     "rng_implementation": "random.Random (Mersenne Twister)",
     "script_git": {
-      "dirty": true,
+      "dirty": false,
       "script_path": "scripts/cluster_bootstrap_mars_results.py",
-      "sha": "b9374af8488249c888db4ef2e04a999ac3a5e842"
+      "sha": "b03d1083f3a9025a3c7e615483c5d36da3f41bc5"
     },
     "seed": 20260503
   }
