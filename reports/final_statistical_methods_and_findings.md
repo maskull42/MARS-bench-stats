@@ -1,6 +1,6 @@
 # MARS-Bench Final Statistical Measurements
 
-Generated: `2026-05-07T06:42:19+00:00`
+Generated: `2026-05-07T08:55:55+00:00`
 
 ## Raw Data Locations
 
@@ -10,17 +10,23 @@ Generated: `2026-05-07T06:42:19+00:00`
 - Source working DB filename: `mars_bench.db`
 - Source working DB SHA-256: `02635670449b41b8aadba3b4ce22a08911ef75b5ca3f0a0582e1ce53d41f2ab8`
 
-The public DB is release-scoped and redacts local paths and raw source-packet body text. It retains questions, reference answers, model responses, scores, rubrics, judge notes, audit flags, material hashes, and source/audit provenance needed for statistical replication.
+The public DB is release-scoped and redacts local paths and raw long-form source/context packet body text. It retains questions, reference answers, model responses, scores, rubrics, judge notes, audit flags, material hashes, and structured source/audit provenance needed for statistical replication.
 
 ## Corpus and Judging Coverage
 
 - Release: `mars_bench_v2_0_d1_d2_d3_d4_d5_d6_d7_rebuild_candidate`
+- Release questions in public DB: `251`
+- Release responses in public DB: `10542`
+- Paired-analysis questions: `229`
 - Paired Codex-Claude response rows: `9618`
+- Nonpaired release responses outside paired model-selection analysis: `924`
 - Codex rows matching final filter: `9618`
 - Claude rows matching final filter: `9618`
 - Paired fraction of Codex rows: `1.000`
 - Paired fraction of Claude rows: `1.000`
 - Bootstrap reps: `1000`; seed: `20260503`; interval: `percentile`
+
+The 924 nonpaired rows are not stray legacy responses. They are current-release D1 structured morphology adjunct responses: 22 questions x 14 models x 3 runs, judged only by `d1-structured-morphology-scorer-2026-04-25`. Because they have no final paired Codex-Claude evaluations, they are excluded from the paired model-selection statistics and should be analyzed only with a morphology-specific metric.
 
 ## Measurement 1: Inter-Judge Reliability
 
@@ -84,7 +90,7 @@ Formulae:
 - Verbosity inflation index: `(mean(score | words > median_words) - mean(score | words <= median_words)) / mean(score | words <= median_words)`.
 - Length-adjusted score: fit `score ~ log(1 + words) + domain FE + level FE + regime FE`; then adjust each score to the global mean log length: `score_adj_i = score_i - beta_len*(log_words_i - mean(log_words))`.
 
-Overall log-length coefficient: `-0.450366`; p-value `0.0`.
+Overall log-length coefficient: `-0.450366`; p-value `1.29e-297`.
 
 Top length-adjusted rankings:
 
@@ -169,8 +175,8 @@ Formulae:
 
 - Paired difference for each common question: `d_q = score_Aq - score_Bq`.
 - Wilcoxon signed-rank tests whether the median paired difference is zero.
-- Benjamini-Hochberg controls the false discovery rate across the family of pairwise tests.
-- Cohen's d here is descriptive: `mean(A - B) / pooled_SD`.
+- Benjamini-Hochberg adjusted p-values are reported as an FDR-oriented multiplicity correction under the usual independence/positive-dependence assumptions.
+- The reported standardized mean difference is descriptive: `mean(A - B) / pooled_SD`; it is not a paired-samples `d_z`.
 
 ## Files Produced
 

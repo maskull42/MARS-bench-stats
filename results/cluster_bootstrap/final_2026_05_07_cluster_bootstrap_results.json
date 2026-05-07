@@ -415,7 +415,7 @@
         "pair_key": "llama-3.3-70b-instruct__minus__gemma-4-31b-it"
       }
     ],
-    "paired_composite_differences_caveat": "Paired-difference CI on \u0394 = composite(a) - composite(b), computed from the same B bootstrap resamples that drive the marginal composite CIs. The percentile 95% CI uses the per-resample covariance between the two models' composites and is the canonical correct test of statistical distinguishability \u2014 overlapping marginal CIs are necessary-but-not-sufficient for non-distinguishability (Schenker and Gentleman 2001, The American Statistician 55:182-186). If `ci_includes_zero` is true, the two models are not statistically distinguishable on the role-weighted composite at 95% on this snapshot; if false, the difference is statistically distinguishable. Snapshot reflects the `eligible_paired_rows` paired-overlap subset and inherits the D2/D6 degenerate-bootstrap caveat above.",
+    "paired_composite_differences_caveat": "Paired-difference CI on \u0394 = composite(a) - composite(b), computed from the same B bootstrap resamples that drive the marginal composite CIs. The percentile 95% CI uses the per-resample covariance between the two models' composites and is the canonical correct test of statistical distinguishability \u2014 overlapping marginal CIs are necessary-but-not-sufficient for non-distinguishability (Schenker and Gentleman 2001, The American Statistician 55:182-186). If `ci_includes_zero` is true, the two models are not statistically distinguishable on the role-weighted composite at 95% on this snapshot; if false, the difference is statistically distinguishable under this paired bootstrap procedure. Snapshot reflects the `eligible_paired_rows` paired-overlap subset and inherits the domain sample-size and paired-analysis cohort caveats above.",
     "per_domain": {
       "D1": [
         {
@@ -1020,7 +1020,7 @@
         }
       ]
     },
-    "weighted_composite_caveat": "D2 (Biblical Knowledge) and D6 (Heresiological Knowledge) typically have very small per-domain paired-question counts (~2 in the current interim subset). Within-domain bootstrap for those two domains is degenerate; the composite CI inherits this caveat. Combined D2+D6 weight is 31.5%. Per supplemental_interjudge_reliability_statistical_methods_2026_05_03.md \u00a716.",
+    "weighted_composite_caveat": "Composite intervals are conditioned on the observed paired-analysis question counts by domain: D1=66, D2=16, D3=24, D4=24, D5=25, D6=24, D7=50. Questions are resampled with replacement within domain, so domains with fewer paired questions have more discrete bootstrap support than domains with larger question counts. The 924 D1 structured morphology adjunct responses in the public release are excluded from this paired composite because they were scored by the specialized morphology scorer rather than by the final paired Codex-Claude judging apparatus.",
     "weighted_composite_leaderboard": [
       {
         "ci_95_high": 3.0843,
@@ -1424,9 +1424,9 @@
     "release_status": "candidate",
     "rng_implementation": "random.Random (Mersenne Twister)",
     "script_git": {
-      "dirty": false,
+      "dirty": true,
       "script_path": "scripts/cluster_bootstrap_mars_results.py",
-      "sha": "b03d1083f3a9025a3c7e615483c5d36da3f41bc5"
+      "sha": "caea503c2862f1099f1a8107c319466bd6220470"
     },
     "seed": 20260503
   }
