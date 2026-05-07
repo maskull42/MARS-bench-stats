@@ -691,11 +691,15 @@ def run_bootstrap(rows: list[dict[str, Any]], args: argparse.Namespace) -> dict[
         "weighted_composite_leaderboard": composite_leaderboard,
         "weighted_composite_weights": ROLE_AUDITION_WEIGHTS,
         "weighted_composite_caveat": (
-            "D2 (Biblical Knowledge) and D6 (Heresiological Knowledge) typically "
-            "have very small per-domain paired-question counts (~2 in the current "
-            "interim subset). Within-domain bootstrap for those two domains is "
-            "degenerate; the composite CI inherits this caveat. Combined D2+D6 "
-            "weight is 31.5%. Per supplemental_interjudge_reliability_statistical_methods_2026_05_03.md §16."
+            "Composite intervals are conditioned on the observed paired-analysis "
+            "question counts by domain: D1=66, D2=16, D3=24, D4=24, D5=25, "
+            "D6=24, D7=50. Questions are resampled with replacement within "
+            "domain, so domains with fewer paired questions have more discrete "
+            "bootstrap support than domains with larger question counts. The 924 "
+            "D1 structured morphology adjunct responses in the public release "
+            "are excluded from this paired composite because they were scored by "
+            "the specialized morphology scorer rather than by the final paired "
+            "Codex-Claude judging apparatus."
         ),
         "paired_composite_differences": paired_composite_diffs,
         "paired_composite_differences_caveat": (
@@ -708,9 +712,10 @@ def run_bootstrap(rows: list[dict[str, Any]], args: argparse.Namespace) -> dict[
             "(Schenker and Gentleman 2001, The American Statistician 55:182-186). "
             "If `ci_includes_zero` is true, the two models are not statistically "
             "distinguishable on the role-weighted composite at 95% on this "
-            "snapshot; if false, the difference is statistically distinguishable. "
-            "Snapshot reflects the `eligible_paired_rows` paired-overlap subset "
-            "and inherits the D2/D6 degenerate-bootstrap caveat above."
+            "snapshot; if false, the difference is statistically distinguishable "
+            "under this paired bootstrap procedure. Snapshot reflects the "
+            "`eligible_paired_rows` paired-overlap subset and inherits the "
+            "domain sample-size and paired-analysis cohort caveats above."
         ),
         "per_domain": domains,
         "interjudge_reliability": reliability,

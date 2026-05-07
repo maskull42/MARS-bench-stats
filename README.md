@@ -9,7 +9,8 @@ the public database includes benchmark questions, reference answers, model
 responses, judge scores, judge notes, audit notes, audit flags, prompt/rubric
 materials, and provenance hashes needed to regenerate the final statistics.
 Machine-local paths, private worker/account tables, worker-claim state, and raw
-source/context packet bodies have been removed or redacted.
+long-form source/context packet bodies have been removed or redacted. Structured
+lexical, syntactic, and provenance metadata needed for replication is retained.
 
 ## Repository Contents
 
@@ -28,7 +29,7 @@ source/context packet bodies have been removed or redacted.
   formulas, data locations, and numerical findings.
 - `legacy_reference_scripts/`: earlier statistical scripts preserved for
   audit history and method continuity.
-- `docs/`: data-export and publication-safety notes.
+- `docs/`: data-export, response-set, and publication-safety notes.
 
 ## Reproducing the Final Statistics
 
@@ -64,11 +65,21 @@ Run the final bias, selection, and appendix diagnostics:
 python scripts/run_bias_and_selection_diagnostics.py
 ```
 
-The analysis cohort contains 14 model cohorts, 229 questions, and 9,618 paired
-Codex-Claude judged response rows. The final filter uses the Codex judge model
+The public database contains 251 release questions and 10,542 release
+responses. The paired model-selection analysis uses 229 questions and 9,618
+paired Codex-Claude response rows. The remaining 924 responses are current
+release D1 structured morphology adjunct rows: 22 questions x 14 models x 3
+runs. Those rows were scored only by `d1-structured-morphology-scorer-2026-04-25`
+and have no final paired Codex-Claude evaluations, so they are not included in
+the paired model-selection statistics.
+
+The final paired filter uses the Codex judge model
 `gpt-5.5-medium-codex-cli` and the Claude judge model
 `claude-opus-4-7-medium-claude-cli` with the final primary/comparison judge
-version filters recorded in the cluster bootstrap JSON metadata.
+version filters recorded in the cluster bootstrap JSON metadata. The
+`evaluations` table also preserves supplementary/earlier evaluation rows for
+auditability; the final analyses select only the explicitly filtered paired
+Codex-Claude rows.
 
 ## Raw Data Location
 
@@ -90,8 +101,9 @@ database so the export can be audited without exposing a local machine path.
 
 ## Statistical Measurements
 
-The scripts use paired average response scores. For model `m`, question `q`,
-run `r`, and judge `j`, let `s_{mqrj}` be the score. The paired response score is
+The model-selection scripts use paired average response scores. For model `m`,
+question `q`, run `r`, and judge `j`, let `s_{mqrj}` be the score. The paired
+response score is
 
 ```text
 S_{mqr} = (s_{mqr,Codex} + s_{mqr,Claude}) / 2
@@ -149,10 +161,10 @@ Purpose: estimate ranking uncertainty without pretending that every response
 row is independent. Rows are clustered by question because multiple model runs
 answer the same question.
 
-For each bootstrap replicate, questions are sampled with replacement within
-each domain. All model/run rows attached to sampled questions are carried into
-the replicate. The scripts recompute observed means, ranks, top-1 rates,
-top-3 rates, and percentile 95% confidence intervals.
+For each bootstrap replicate, the 229 paired-analysis questions are sampled
+with replacement within each domain. All model/run rows attached to sampled
+questions are carried into the replicate. The scripts recompute observed means,
+ranks, top-1 rates, top-3 rates, and percentile 95% confidence intervals.
 
 Non-expert interpretation: this asks how much the leaderboard would move if
 the benchmark had sampled a slightly different set of questions from the same
@@ -329,19 +341,23 @@ d_q = Q_{aq} - Q_{bq}
 ```
 
 The Wilcoxon signed-rank test evaluates whether the median paired difference
-is zero. The Benjamini-Hochberg procedure controls false discovery rate across
-the family of pairwise tests.
+is zero. Benjamini-Hochberg adjusted p-values are reported as an FDR-oriented
+multiplicity correction under the usual independence/positive-dependence
+assumptions.
 
 Non-expert interpretation: this is a secondary statistical appendix. It is
 not the selection rule; the role-weighted bootstrap and qualitative failure
-profiles are more directly tied to model selection.
+profiles are more directly tied to model selection. The reported standardized
+mean difference uses pooled SD and is descriptive; it is not a paired-samples
+`d_z`.
 
 ## Publication Safety
 
 The public export intentionally excludes private user/account tables, active
-worker claims, and raw source/context body text. Local filesystem paths are
-redacted, while hashes and structured provenance are retained. See
-`docs/publication_safety.md` and `docs/data_dictionary.md` for details.
+worker claims, and raw long-form source/context body text. Local filesystem
+paths are redacted, while hashes and structured provenance are retained. See
+`docs/publication_safety.md`, `docs/data_dictionary.md`, and
+`docs/response_sets.md` for details.
 
 ## Citations
 
@@ -375,4 +391,3 @@ redacted, while hashes and structured provenance are retained. See
   doi:10.1037/0033-2909.86.2.420.
 - Wilcoxon, F. 1945. Individual comparisons by ranking methods. Biometrics
   Bulletin 1:80-83. doi:10.2307/3001968.
-

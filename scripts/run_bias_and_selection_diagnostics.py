@@ -49,6 +49,16 @@ def round_float(value: float | None, digits: int = 4) -> float | None:
     return round(float(value), digits)
 
 
+def format_p_value(value: float | None) -> str:
+    if value is None:
+        return "NA"
+    if value == 0.0:
+        return "< 1e-300"
+    if value < 0.001:
+        return f"{value:.2e}"
+    return str(round_float(value, 4))
+
+
 def load_paired_rows(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     rows = conn.execute(
         """
@@ -162,6 +172,9 @@ def length_residualized_rank(rows: list[dict[str, Any]]) -> dict[str, Any]:
     se = np.sqrt(np.diag(cov))
     t_value = float(beta[1] / se[1]) if se[1] else None
     p_value = float(2 * stats.t.sf(abs(t_value), dof)) if t_value is not None else None
+    log10_p_value = None
+    if t_value is not None:
+        log10_p_value = float((math.log(2.0) + stats.t.logsf(abs(t_value), dof)) / math.log(10.0))
 
     mean_log_wc = float(np.mean(log_wc))
     adjusted_scores = score - float(beta[1]) * (log_wc - mean_log_wc)
@@ -195,7 +208,8 @@ def length_residualized_rank(rows: list[dict[str, Any]]) -> dict[str, Any]:
         "coefficient_names": names,
         "log1p_word_count_slope": round_float(float(beta[1]), 6),
         "log1p_word_count_t": round_float(t_value),
-        "log1p_word_count_p": round_float(p_value, 10),
+        "log1p_word_count_p": p_value,
+        "log1p_word_count_log10_p": round_float(log10_p_value, 4),
         "dof": int(dof),
         "model_results": model_results,
     }
@@ -388,7 +402,7 @@ def pairwise_wilcoxon(question_rows: list[dict[str, Any]]) -> list[dict[str, Any
         else:
             stat, p_value = stats.wilcoxon(diffs, alternative="two-sided", zero_method="wilcox")
         pooled_sd = math.sqrt((float(np.var(a, ddof=1)) + float(np.var(b, ddof=1))) / 2.0) if len(common) > 1 else 0.0
-        cohens_d = float((np.mean(a) - np.mean(b)) / pooled_sd) if pooled_sd > 0 else 0.0
+        standardized_mean_difference = float((np.mean(a) - np.mean(b)) / pooled_sd) if pooled_sd > 0 else 0.0
         rows.append(
             {
                 "model_a": model_a,
@@ -396,7 +410,7 @@ def pairwise_wilcoxon(question_rows: list[dict[str, Any]]) -> list[dict[str, Any
                 "mean_difference_a_minus_b": round_float(float(np.mean(diffs))),
                 "wilcoxon_statistic": round_float(float(stat)),
                 "p_value": float(p_value),
-                "cohens_d": round_float(cohens_d),
+                "standardized_mean_difference_pooled_sd": round_float(standardized_mean_difference),
                 "n_common_questions": len(common),
             }
         )
@@ -455,6 +469,102 @@ def response_integrity_profile(conn: sqlite3.Connection) -> dict[str, Any]:
     return by_model
 
 
+def response_set_summary(conn: sqlite3.Connection) -> dict[str, Any]:
+    totals = dict(conn.execute(
+        """
+        WITH paired AS (SELECT DISTINCT response_id FROM paired_codex_claude_scores)
+        SELECT
+          COUNT(*) AS total_release_responses,
+          SUM(CASE WHEN p.response_id IS NOT NULL THEN 1 ELSE 0 END) AS paired_analysis_responses,
+          SUM(CASE WHEN p.response_id IS NULL THEN 1 ELSE 0 END) AS nonpaired_responses
+        FROM responses r
+        LEFT JOIN paired p ON p.response_id = r.id
+        """
+    ).fetchone())
+    totals["release_questions"] = int(conn.execute(
+        "SELECT COUNT(*) FROM release_questions WHERE is_included = 1"
+    ).fetchone()[0])
+    totals["paired_analysis_questions"] = int(conn.execute(
+        "SELECT COUNT(DISTINCT question_id) FROM paired_codex_claude_scores"
+    ).fetchone()[0])
+    totals["models"] = int(conn.execute(
+        "SELECT COUNT(DISTINCT model) FROM paired_codex_claude_scores"
+    ).fetchone()[0])
+
+    by_domain = [
+        dict(row) for row in conn.execute(
+            """
+            WITH paired AS (SELECT DISTINCT response_id FROM paired_codex_claude_scores)
+            SELECT d.id AS domain_id, d.display_name,
+                   COUNT(*) AS total_responses,
+                   SUM(CASE WHEN p.response_id IS NOT NULL THEN 1 ELSE 0 END) AS paired_responses,
+                   SUM(CASE WHEN p.response_id IS NULL THEN 1 ELSE 0 END) AS nonpaired_responses,
+                   COUNT(DISTINCT r.question_id) AS total_questions,
+                   COUNT(DISTINCT CASE WHEN p.response_id IS NOT NULL THEN r.question_id END) AS paired_questions,
+                   COUNT(DISTINCT CASE WHEN p.response_id IS NULL THEN r.question_id END) AS nonpaired_questions
+            FROM responses r
+            JOIN questions q ON q.id = r.question_id
+            JOIN domains d ON d.id = q.domain_id
+            LEFT JOIN paired p ON p.response_id = r.id
+            GROUP BY d.id, d.display_name
+            ORDER BY d.id
+            """
+        )
+    ]
+
+    nonpaired_group = conn.execute(
+        """
+        WITH paired_questions AS (SELECT DISTINCT question_id FROM paired_codex_claude_scores),
+        nonpaired_questions AS (
+          SELECT q.id, q.text, rq.track, rq.tier, rq.authoring_input_type
+          FROM release_questions rq
+          JOIN questions q ON q.id = rq.question_id
+          LEFT JOIN paired_questions pq ON pq.question_id = q.id
+          WHERE rq.is_included = 1 AND pq.question_id IS NULL
+        )
+        SELECT track, tier, authoring_input_type, COUNT(*) AS questions,
+               SUM(CASE WHEN text LIKE '%Greek text%' THEN 1 ELSE 0 END) AS greek_nt_questions,
+               SUM(CASE WHEN text LIKE '%Septuagint%' THEN 1 ELSE 0 END) AS septuagint_questions,
+               SUM(CASE WHEN text LIKE '%Biblical Hebrew%' THEN 1 ELSE 0 END) AS hebrew_questions,
+               SUM(CASE WHEN text LIKE '%Biblical Aramaic%' THEN 1 ELSE 0 END) AS aramaic_questions
+        FROM nonpaired_questions
+        GROUP BY track, tier, authoring_input_type
+        """
+    ).fetchone()
+
+    nonpaired_eval_coverage = [
+        dict(row) for row in conn.execute(
+            """
+            WITH paired AS (SELECT DISTINCT response_id FROM paired_codex_claude_scores),
+            nonpaired AS (
+              SELECT r.id AS response_id
+              FROM responses r LEFT JOIN paired p ON p.response_id = r.id
+              WHERE p.response_id IS NULL
+            )
+            SELECT e.judge_model, e.judge_prompt_version,
+                   COUNT(*) AS evaluation_rows,
+                   COUNT(DISTINCT e.response_id) AS distinct_responses
+            FROM nonpaired u
+            JOIN evaluations e ON e.response_id = u.response_id
+            GROUP BY e.judge_model, e.judge_prompt_version
+            ORDER BY evaluation_rows DESC
+            """
+        )
+    ]
+    return {
+        **totals,
+        "by_domain": by_domain,
+        "nonpaired_question_group": dict(nonpaired_group) if nonpaired_group else None,
+        "nonpaired_evaluation_coverage": nonpaired_eval_coverage,
+        "interpretation": (
+            "The 924 nonpaired responses are current-release D1 structured morphology "
+            "adjunct responses: 22 questions x 14 models x 3 runs. They were judged "
+            "by d1-structured-morphology-scorer-2026-04-25 and have no final paired "
+            "Codex-Claude evaluations, so they are excluded from paired model-selection statistics."
+        ),
+    }
+
+
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if not rows:
@@ -490,6 +600,7 @@ def write_report(
 ) -> None:
     metadata = cluster["metadata"]
     coverage = cluster["coverage"]
+    response_sets = diagnostics["response_set_summary"]
     reliability = cluster["analysis"]["interjudge_reliability"]
     role_top = top_models_from_cluster(cluster, 8)
     paired_diffs = cluster["analysis"].get("paired_composite_differences", [])
@@ -516,17 +627,23 @@ def write_report(
         f"- Source working DB filename: `{diagnostics['export_metadata'].get('source_db_filename')}`",
         f"- Source working DB SHA-256: `{diagnostics['export_metadata'].get('source_db_sha256')}`",
         "",
-        "The public DB is release-scoped and redacts local paths and raw source-packet body text. It retains questions, reference answers, model responses, scores, rubrics, judge notes, audit flags, material hashes, and source/audit provenance needed for statistical replication.",
+        "The public DB is release-scoped and redacts local paths and raw long-form source/context packet body text. It retains questions, reference answers, model responses, scores, rubrics, judge notes, audit flags, material hashes, and structured source/audit provenance needed for statistical replication.",
         "",
         "## Corpus and Judging Coverage",
         "",
         f"- Release: `{metadata['release_label']}`",
+        f"- Release questions in public DB: `{response_sets['release_questions']}`",
+        f"- Release responses in public DB: `{response_sets['total_release_responses']}`",
+        f"- Paired-analysis questions: `{response_sets['paired_analysis_questions']}`",
         f"- Paired Codex-Claude response rows: `{coverage['paired_rows']}`",
+        f"- Nonpaired release responses outside paired model-selection analysis: `{response_sets['nonpaired_responses']}`",
         f"- Codex rows matching final filter: `{coverage['codex_rows_matching_filter']}`",
         f"- Claude rows matching final filter: `{coverage['claude_rows_matching_filter']}`",
         f"- Paired fraction of Codex rows: `{coverage['paired_fraction_of_codex']:.3f}`",
         f"- Paired fraction of Claude rows: `{coverage['paired_fraction_of_claude']:.3f}`",
         f"- Bootstrap reps: `{metadata['bootstrap_reps']}`; seed: `{metadata['seed']}`; interval: `{metadata['bootstrap_interval_type']}`",
+        "",
+        "The 924 nonpaired rows are not stray legacy responses. They are current-release D1 structured morphology adjunct responses: 22 questions x 14 models x 3 runs, judged only by `d1-structured-morphology-scorer-2026-04-25`. Because they have no final paired Codex-Claude evaluations, they are excluded from the paired model-selection statistics and should be analyzed only with a morphology-specific metric.",
         "",
         "## Measurement 1: Inter-Judge Reliability",
         "",
@@ -598,7 +715,7 @@ def write_report(
             "- Verbosity inflation index: `(mean(score | words > median_words) - mean(score | words <= median_words)) / mean(score | words <= median_words)`.",
             "- Length-adjusted score: fit `score ~ log(1 + words) + domain FE + level FE + regime FE`; then adjust each score to the global mean log length: `score_adj_i = score_i - beta_len*(log_words_i - mean(log_words))`.",
             "",
-            f"Overall log-length coefficient: `{diagnostics['length_residualized_rank']['log1p_word_count_slope']}`; p-value `{diagnostics['length_residualized_rank']['log1p_word_count_p']}`.",
+            f"Overall log-length coefficient: `{diagnostics['length_residualized_rank']['log1p_word_count_slope']}`; p-value `{format_p_value(diagnostics['length_residualized_rank']['log1p_word_count_p'])}`.",
             "",
             "Top length-adjusted rankings:",
             "",
@@ -677,8 +794,8 @@ def write_report(
             "",
             "- Paired difference for each common question: `d_q = score_Aq - score_Bq`.",
             "- Wilcoxon signed-rank tests whether the median paired difference is zero.",
-            "- Benjamini-Hochberg controls the false discovery rate across the family of pairwise tests.",
-            "- Cohen's d here is descriptive: `mean(A - B) / pooled_SD`.",
+            "- Benjamini-Hochberg adjusted p-values are reported as an FDR-oriented multiplicity correction under the usual independence/positive-dependence assumptions.",
+            "- The reported standardized mean difference is descriptive: `mean(A - B) / pooled_SD`; it is not a paired-samples `d_z`.",
             "",
             "## Files Produced",
             "",
@@ -742,6 +859,7 @@ def main() -> None:
         "domain_and_equal_weight_sensitivity": domain_and_equal_weight_sensitivity(question_rows),
         "pairwise_wilcoxon_question_means": pairwise_wilcoxon(question_rows),
         "response_integrity_profile": response_integrity_profile(conn),
+        "response_set_summary": response_set_summary(conn),
     }
     conn.close()
 

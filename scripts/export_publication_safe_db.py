@@ -7,8 +7,8 @@ is release-scoped and suitable for public statistical replication:
 - includes benchmark questions, reference answers, model responses, rubrics,
   scores, judge notes, audit flags, and provenance hashes;
 - excludes private user/account tables and worker claims;
-- redacts local filesystem paths and raw source-packet body text while retaining
-  hashes and structured provenance metadata.
+- redacts local filesystem paths and raw long-form source/context packet body
+  text while retaining hashes and structured provenance metadata.
 """
 
 from __future__ import annotations
