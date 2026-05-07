@@ -1,0 +1,15 @@
+model,trap_mean,non_trap_mean,trap_minus_non_trap,n_trap_questions,n_non_trap_questions
+command-a-03-2025,,2.6213,,0,229
+deepseek-v4-flash,,2.7421,,0,229
+gemma-4-31b-it,,2.7542,,0,229
+glm-5.1,,2.719,,0,229
+hermes-3-llama-3.1-405b,,3.0119,,0,229
+llada2.1-flash,,2.2025,,0,229
+llama-3.3-70b-instruct,,2.7342,,0,229
+llama4-maverick-17b-128e-moe,,2.8218,,0,229
+mistral-medium-3.5,,2.5826,,0,229
+qwen3.5-122b-a10b,,2.614,,0,229
+qwen3.5-397b-a17b-moe,,2.7725,,0,229
+qwen3.5-9b,,2.1386,,0,229
+qwen3.6-27b-fp8,,2.5323,,0,229
+qwen3.6-35b-a3b-q8_0,,2.5386,,0,229

@@ -1,0 +1,15 @@
+model,n_rows,avg_word_count,median_word_count,pearson_r_word_count_score,pearson_p_value,verbosity_inflation_index,flag_abs_r_gt_0_30
+command-a-03-2025,687,445.5,461.0,-0.6226,0.0,-0.2847,True
+deepseek-v4-flash,687,822.0,869.0,-0.692,0.0,-0.3232,True
+gemma-4-31b-it,687,484.7,539.0,-0.6394,0.0,-0.248,True
+glm-5.1,687,699.1,756.0,-0.6767,0.0,-0.2868,True
+hermes-3-llama-3.1-405b,687,287.4,280.0,-0.3616,0.0,-0.1765,True
+llada2.1-flash,687,583.1,587.0,-0.4769,0.0,-0.1868,True
+llama-3.3-70b-instruct,687,385.9,386.0,-0.494,0.0,-0.1973,True
+llama4-maverick-17b-128e-moe,687,404.9,384.0,-0.1041,0.00630069,-0.1087,False
+mistral-medium-3.5,687,796.2,794.0,-0.7166,0.0,-0.3801,True
+qwen3.5-122b-a10b,687,856.4,936.0,-0.7524,0.0,-0.3271,True
+qwen3.5-397b-a17b-moe,687,817.0,889.0,-0.7421,0.0,-0.3146,True
+qwen3.5-9b,687,832.1,851.0,-0.2819,0.0,-0.1462,False
+qwen3.6-27b-fp8,687,821.5,875.0,-0.6202,0.0,-0.2554,True
+qwen3.6-35b-a3b-q8_0,687,788.4,840.0,-0.6728,0.0,-0.2684,True

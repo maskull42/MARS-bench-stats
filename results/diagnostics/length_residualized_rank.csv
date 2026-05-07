@@ -1,0 +1,15 @@
+model,raw_mean,raw_rank,length_adjusted_mean,length_adjusted_rank,rank_shift_positive_is_improved
+qwen3.5-397b-a17b-moe,2.7725,3,2.9063,1,2
+deepseek-v4-flash,2.7421,5,2.8655,2,3
+glm-5.1,2.719,7,2.785,3,4
+qwen3.5-122b-a10b,2.614,9,2.772,4,5
+hermes-3-llama-3.1-405b,3.0119,1,2.6866,5,-4
+qwen3.6-27b-fp8,2.5323,12,2.6744,6,6
+qwen3.6-35b-a3b-q8_0,2.5386,11,2.6587,7,4
+gemma-4-31b-it,2.7542,4,2.6502,8,-4
+mistral-medium-3.5,2.5826,10,2.6459,9,1
+llama4-maverick-17b-128e-moe,2.8218,2,2.6414,10,-8
+llama-3.3-70b-instruct,2.7342,6,2.5417,11,-5
+command-a-03-2025,2.6213,8,2.4863,12,-4
+qwen3.5-9b,2.1386,14,2.2827,13,1
+llada2.1-flash,2.2025,13,2.1889,14,-1

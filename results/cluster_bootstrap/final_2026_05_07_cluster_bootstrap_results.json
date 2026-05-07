@@ -1,0 +1,1433 @@
+{
+  "analysis": {
+    "bootstrap_unit": "questions resampled with replacement within each domain; all model responses and paired judge scores for sampled questions retained",
+    "eligible_model_count": 14,
+    "eligible_paired_rows": 9618,
+    "interjudge_reliability": {
+      "bland_altman_high": 0.7464,
+      "bland_altman_high_empirical": 0.9,
+      "bland_altman_high_normal": 0.7464,
+      "bland_altman_low": -0.6921,
+      "bland_altman_low_empirical": -0.7,
+      "bland_altman_low_normal": -0.6921,
+      "bootstrap_ci": {
+        "bland_altman_high": {
+          "ci_95_high": 0.7739,
+          "ci_95_low": 0.7191
+        },
+        "bland_altman_high_empirical": {
+          "ci_95_high": 0.9,
+          "ci_95_low": 0.8
+        },
+        "bland_altman_high_normal": {
+          "ci_95_high": 0.7739,
+          "ci_95_low": 0.7191
+        },
+        "bland_altman_low": {
+          "ci_95_high": -0.6631,
+          "ci_95_low": -0.7228
+        },
+        "bland_altman_low_empirical": {
+          "ci_95_high": -0.6495,
+          "ci_95_low": -0.8
+        },
+        "bland_altman_low_normal": {
+          "ci_95_high": -0.6631,
+          "ci_95_low": -0.7228
+        },
+        "exact_same_score_rate": {
+          "ci_95_high": 0.4719,
+          "ci_95_low": 0.4426
+        },
+        "icc_a1": {
+          "ci_95_high": 0.9342,
+          "ci_95_low": 0.9182
+        },
+        "icc_a2": {
+          "ci_95_high": 0.966,
+          "ci_95_low": 0.9573
+        },
+        "mean_absolute_difference": {
+          "ci_95_high": 0.2346,
+          "ci_95_low": 0.2174
+        },
+        "mean_signed_difference_claude_minus_codex": {
+          "ci_95_high": 0.0393,
+          "ci_95_low": 0.0137
+        },
+        "pearson_correlation": {
+          "ci_95_high": 0.9381,
+          "ci_95_low": 0.9233
+        },
+        "spearman_correlation": {
+          "ci_95_high": 0.9288,
+          "ci_95_low": 0.9142
+        },
+        "within_0_25_rate": {
+          "ci_95_high": 0.7054,
+          "ci_95_low": 0.6776
+        },
+        "within_0_50_rate": {
+          "ci_95_high": 0.8638,
+          "ci_95_low": 0.845
+        },
+        "within_1_00_rate": {
+          "ci_95_high": 0.9867,
+          "ci_95_low": 0.9795
+        }
+      },
+      "exact_same_score_rate": 0.4563,
+      "icc_a1": 0.9267,
+      "icc_a2": 0.962,
+      "mean_absolute_difference": 0.2261,
+      "mean_claude_score": 2.6411,
+      "mean_codex_score": 2.614,
+      "mean_signed_difference_claude_minus_codex": 0.0271,
+      "paired_rows": 9618,
+      "pearson_correlation": 0.9312,
+      "spearman_correlation": 0.9218,
+      "within_0_25_rate": 0.6911,
+      "within_0_50_rate": 0.8539,
+      "within_1_00_rate": 0.9833
+    },
+    "leaderboard": [
+      {
+        "ci_95_high": 3.0843,
+        "ci_95_low": 2.9371,
+        "composite_ci_95_high": 2.8796,
+        "composite_ci_95_low": 2.7222,
+        "composite_median_bootstrap_rank": 1.0,
+        "composite_observed": 2.7995,
+        "composite_observed_rank": 1,
+        "composite_rank_95_high": 1.0,
+        "composite_rank_95_low": 1.0,
+        "composite_top_1_rate": 1.0,
+        "composite_top_3_rate": 1.0,
+        "median_bootstrap_rank": 1.0,
+        "model": "hermes-3-llama-3.1-405b",
+        "observed_mean": 3.0119,
+        "observed_rank": 1,
+        "paired_rows": 687,
+        "rank_95_high": 1.0,
+        "rank_95_low": 1.0,
+        "top_1_rate": 1.0,
+        "top_3_rate": 1.0
+      },
+      {
+        "ci_95_high": 2.8846,
+        "ci_95_low": 2.7598,
+        "composite_ci_95_high": 2.6176,
+        "composite_ci_95_low": 2.4975,
+        "composite_median_bootstrap_rank": 2.0,
+        "composite_observed": 2.5557,
+        "composite_observed_rank": 2,
+        "composite_rank_95_high": 3.0,
+        "composite_rank_95_low": 2.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.999,
+        "median_bootstrap_rank": 2.0,
+        "model": "llama4-maverick-17b-128e-moe",
+        "observed_mean": 2.8218,
+        "observed_rank": 2,
+        "paired_rows": 687,
+        "rank_95_high": 3.0,
+        "rank_95_low": 2.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.988
+      },
+      {
+        "ci_95_high": 2.812,
+        "ci_95_low": 2.7321,
+        "composite_ci_95_high": 2.4372,
+        "composite_ci_95_low": 2.3595,
+        "composite_median_bootstrap_rank": 5.0,
+        "composite_observed": 2.3978,
+        "composite_observed_rank": 5,
+        "composite_rank_95_high": 7.0,
+        "composite_rank_95_low": 5.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 3.0,
+        "model": "qwen3.5-397b-a17b-moe",
+        "observed_mean": 2.7725,
+        "observed_rank": 3,
+        "paired_rows": 687,
+        "rank_95_high": 5.0,
+        "rank_95_low": 2.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.692
+      },
+      {
+        "ci_95_high": 2.8079,
+        "ci_95_low": 2.6989,
+        "composite_ci_95_high": 2.5051,
+        "composite_ci_95_low": 2.4048,
+        "composite_median_bootstrap_rank": 4.0,
+        "composite_observed": 2.4566,
+        "composite_observed_rank": 4,
+        "composite_rank_95_high": 4.0,
+        "composite_rank_95_low": 3.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.128,
+        "median_bootstrap_rank": 4.0,
+        "model": "gemma-4-31b-it",
+        "observed_mean": 2.7542,
+        "observed_rank": 4,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 3.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.205
+      },
+      {
+        "ci_95_high": 2.7825,
+        "ci_95_low": 2.7027,
+        "composite_ci_95_high": 2.4245,
+        "composite_ci_95_low": 2.3434,
+        "composite_median_bootstrap_rank": 6.0,
+        "composite_observed": 2.383,
+        "composite_observed_rank": 6,
+        "composite_rank_95_high": 8.0,
+        "composite_rank_95_low": 5.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 5.0,
+        "model": "deepseek-v4-flash",
+        "observed_mean": 2.7421,
+        "observed_rank": 5,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 4.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.022
+      },
+      {
+        "ci_95_high": 2.802,
+        "ci_95_low": 2.6665,
+        "composite_ci_95_high": 2.5568,
+        "composite_ci_95_low": 2.4335,
+        "composite_median_bootstrap_rank": 3.0,
+        "composite_observed": 2.4952,
+        "composite_observed_rank": 3,
+        "composite_rank_95_high": 4.0,
+        "composite_rank_95_low": 3.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.873,
+        "median_bootstrap_rank": 6.0,
+        "model": "llama-3.3-70b-instruct",
+        "observed_mean": 2.7342,
+        "observed_rank": 6,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 3.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.093
+      },
+      {
+        "ci_95_high": 2.7603,
+        "ci_95_low": 2.6714,
+        "composite_ci_95_high": 2.4108,
+        "composite_ci_95_low": 2.3214,
+        "composite_median_bootstrap_rank": 7.0,
+        "composite_observed": 2.3681,
+        "composite_observed_rank": 7,
+        "composite_rank_95_high": 8.0,
+        "composite_rank_95_low": 5.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 7.0,
+        "model": "glm-5.1",
+        "observed_mean": 2.719,
+        "observed_rank": 7,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 5.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.6833,
+        "ci_95_low": 2.5605,
+        "composite_ci_95_high": 2.406,
+        "composite_ci_95_low": 2.2916,
+        "composite_median_bootstrap_rank": 8.0,
+        "composite_observed": 2.3452,
+        "composite_observed_rank": 8,
+        "composite_rank_95_high": 8.0,
+        "composite_rank_95_low": 6.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 8.0,
+        "model": "command-a-03-2025",
+        "observed_mean": 2.6213,
+        "observed_rank": 8,
+        "paired_rows": 687,
+        "rank_95_high": 10.0,
+        "rank_95_low": 8.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.6622,
+        "ci_95_low": 2.5619,
+        "composite_ci_95_high": 2.3206,
+        "composite_ci_95_low": 2.2333,
+        "composite_median_bootstrap_rank": 9.0,
+        "composite_observed": 2.2771,
+        "composite_observed_rank": 9,
+        "composite_rank_95_high": 10.0,
+        "composite_rank_95_low": 9.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 9.0,
+        "model": "qwen3.5-122b-a10b",
+        "observed_mean": 2.614,
+        "observed_rank": 9,
+        "paired_rows": 687,
+        "rank_95_high": 10.0,
+        "rank_95_low": 8.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.6286,
+        "ci_95_low": 2.5272,
+        "composite_ci_95_high": 2.2799,
+        "composite_ci_95_low": 2.1914,
+        "composite_median_bootstrap_rank": 11.0,
+        "composite_observed": 2.237,
+        "composite_observed_rank": 11,
+        "composite_rank_95_high": 12.0,
+        "composite_rank_95_low": 10.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 10.0,
+        "model": "mistral-medium-3.5",
+        "observed_mean": 2.5826,
+        "observed_rank": 10,
+        "paired_rows": 687,
+        "rank_95_high": 11.0,
+        "rank_95_low": 9.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.5867,
+        "ci_95_low": 2.4866,
+        "composite_ci_95_high": 2.3092,
+        "composite_ci_95_low": 2.2191,
+        "composite_median_bootstrap_rank": 10.0,
+        "composite_observed": 2.2626,
+        "composite_observed_rank": 10,
+        "composite_rank_95_high": 11.0,
+        "composite_rank_95_low": 9.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 11.0,
+        "model": "qwen3.6-35b-a3b-q8_0",
+        "observed_mean": 2.5386,
+        "observed_rank": 11,
+        "paired_rows": 687,
+        "rank_95_high": 12.0,
+        "rank_95_low": 10.98,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.58,
+        "ci_95_low": 2.484,
+        "composite_ci_95_high": 2.2653,
+        "composite_ci_95_low": 2.1899,
+        "composite_median_bootstrap_rank": 12.0,
+        "composite_observed": 2.2252,
+        "composite_observed_rank": 12,
+        "composite_rank_95_high": 12.0,
+        "composite_rank_95_low": 11.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 12.0,
+        "model": "qwen3.6-27b-fp8",
+        "observed_mean": 2.5323,
+        "observed_rank": 12,
+        "paired_rows": 687,
+        "rank_95_high": 12.0,
+        "rank_95_low": 11.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.258,
+        "ci_95_low": 2.1464,
+        "composite_ci_95_high": 2.0936,
+        "composite_ci_95_low": 2.0173,
+        "composite_median_bootstrap_rank": 13.0,
+        "composite_observed": 2.0532,
+        "composite_observed_rank": 13,
+        "composite_rank_95_high": 13.0,
+        "composite_rank_95_low": 13.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 13.0,
+        "model": "llada2.1-flash",
+        "observed_mean": 2.2025,
+        "observed_rank": 13,
+        "paired_rows": 687,
+        "rank_95_high": 13.0,
+        "rank_95_low": 13.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.1856,
+        "ci_95_low": 2.0903,
+        "composite_ci_95_high": 1.9811,
+        "composite_ci_95_low": 1.911,
+        "composite_median_bootstrap_rank": 14.0,
+        "composite_observed": 1.9451,
+        "composite_observed_rank": 14,
+        "composite_rank_95_high": 14.0,
+        "composite_rank_95_low": 14.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 14.0,
+        "model": "qwen3.5-9b",
+        "observed_mean": 2.1386,
+        "observed_rank": 14,
+        "paired_rows": 687,
+        "rank_95_high": 14.0,
+        "rank_95_low": 14.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      }
+    ],
+    "min_paired_rows": 1,
+    "paired_composite_differences": [
+      {
+        "bootstrap_ci_high": 0.1052,
+        "bootstrap_ci_low": -0.0251,
+        "bootstrap_mean_difference": 0.0393,
+        "ci_includes_zero": true,
+        "ci_type": "percentile_95",
+        "model_a": "llama-3.3-70b-instruct",
+        "model_b": "gemma-4-31b-it",
+        "n_bootstrap_resamples": 1000,
+        "observed_difference": 0.0386,
+        "pair_key": "llama-3.3-70b-instruct__minus__gemma-4-31b-it"
+      }
+    ],
+    "paired_composite_differences_caveat": "Paired-difference CI on \u0394 = composite(a) - composite(b), computed from the same B bootstrap resamples that drive the marginal composite CIs. The percentile 95% CI uses the per-resample covariance between the two models' composites and is the canonical correct test of statistical distinguishability \u2014 overlapping marginal CIs are necessary-but-not-sufficient for non-distinguishability (Schenker and Gentleman 2001, The American Statistician 55:182-186). If `ci_includes_zero` is true, the two models are not statistically distinguishable on the role-weighted composite at 95% on this snapshot; if false, the difference is statistically distinguishable. Snapshot reflects the `eligible_paired_rows` paired-overlap subset and inherits the D2/D6 degenerate-bootstrap caveat above.",
+    "per_domain": {
+      "D1": [
+        {
+          "ci_95_high": 4.3584,
+          "ci_95_low": 4.1798,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 4.2703
+        },
+        {
+          "ci_95_high": 4.2869,
+          "ci_95_low": 4.1036,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 4.1922
+        },
+        {
+          "ci_95_high": 4.1845,
+          "ci_95_low": 3.9931,
+          "model": "glm-5.1",
+          "observed_mean": 4.0896
+        },
+        {
+          "ci_95_high": 4.0952,
+          "ci_95_low": 3.8599,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 3.9833
+        },
+        {
+          "ci_95_high": 4.0576,
+          "ci_95_low": 3.8038,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 3.9378
+        },
+        {
+          "ci_95_high": 4.0183,
+          "ci_95_low": 3.7521,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 3.8884
+        },
+        {
+          "ci_95_high": 3.9194,
+          "ci_95_low": 3.6432,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 3.7837
+        },
+        {
+          "ci_95_high": 3.8812,
+          "ci_95_low": 3.5932,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 3.7442
+        },
+        {
+          "ci_95_high": 3.8326,
+          "ci_95_low": 3.574,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 3.7109
+        },
+        {
+          "ci_95_high": 3.8269,
+          "ci_95_low": 3.5187,
+          "model": "command-a-03-2025",
+          "observed_mean": 3.6764
+        },
+        {
+          "ci_95_high": 3.7894,
+          "ci_95_low": 3.5237,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 3.6684
+        },
+        {
+          "ci_95_high": 3.677,
+          "ci_95_low": 3.3736,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 3.5255
+        },
+        {
+          "ci_95_high": 3.0391,
+          "ci_95_low": 2.7525,
+          "model": "qwen3.5-9b",
+          "observed_mean": 2.8939
+        },
+        {
+          "ci_95_high": 2.9831,
+          "ci_95_low": 2.6429,
+          "model": "llada2.1-flash",
+          "observed_mean": 2.8139
+        }
+      ],
+      "D2": [
+        {
+          "ci_95_high": 3.3948,
+          "ci_95_low": 2.7999,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 3.0771
+        },
+        {
+          "ci_95_high": 2.9104,
+          "ci_95_low": 2.6968,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 2.801
+        },
+        {
+          "ci_95_high": 2.9339,
+          "ci_95_low": 2.6765,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 2.8005
+        },
+        {
+          "ci_95_high": 2.9292,
+          "ci_95_low": 2.6233,
+          "model": "glm-5.1",
+          "observed_mean": 2.7828
+        },
+        {
+          "ci_95_high": 2.9292,
+          "ci_95_low": 2.6036,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 2.7573
+        },
+        {
+          "ci_95_high": 2.861,
+          "ci_95_low": 2.5495,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 2.699
+        },
+        {
+          "ci_95_high": 2.7959,
+          "ci_95_low": 2.5807,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 2.6875
+        },
+        {
+          "ci_95_high": 2.7886,
+          "ci_95_low": 2.5495,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 2.6604
+        },
+        {
+          "ci_95_high": 2.7792,
+          "ci_95_low": 2.4994,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 2.6417
+        },
+        {
+          "ci_95_high": 2.7485,
+          "ci_95_low": 2.4942,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 2.6224
+        },
+        {
+          "ci_95_high": 2.7812,
+          "ci_95_low": 2.4228,
+          "model": "command-a-03-2025",
+          "observed_mean": 2.5901
+        },
+        {
+          "ci_95_high": 2.674,
+          "ci_95_low": 2.4365,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 2.5453
+        },
+        {
+          "ci_95_high": 2.4849,
+          "ci_95_low": 2.2562,
+          "model": "llada2.1-flash",
+          "observed_mean": 2.3667
+        },
+        {
+          "ci_95_high": 2.276,
+          "ci_95_low": 2.037,
+          "model": "qwen3.5-9b",
+          "observed_mean": 2.1609
+        }
+      ],
+      "D3": [
+        {
+          "ci_95_high": 2.6573,
+          "ci_95_low": 2.3086,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 2.4819
+        },
+        {
+          "ci_95_high": 2.4302,
+          "ci_95_low": 2.0138,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 2.208
+        },
+        {
+          "ci_95_high": 2.2125,
+          "ci_95_low": 2.002,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 2.1167
+        },
+        {
+          "ci_95_high": 2.1285,
+          "ci_95_low": 1.8701,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 2.0028
+        },
+        {
+          "ci_95_high": 2.1577,
+          "ci_95_low": 1.8382,
+          "model": "command-a-03-2025",
+          "observed_mean": 2.0024
+        },
+        {
+          "ci_95_high": 2.1761,
+          "ci_95_low": 1.7805,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 1.9747
+        },
+        {
+          "ci_95_high": 2.1236,
+          "ci_95_low": 1.8233,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 1.9677
+        },
+        {
+          "ci_95_high": 2.1,
+          "ci_95_low": 1.7889,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 1.9462
+        },
+        {
+          "ci_95_high": 2.0375,
+          "ci_95_low": 1.7516,
+          "model": "glm-5.1",
+          "observed_mean": 1.9024
+        },
+        {
+          "ci_95_high": 1.9278,
+          "ci_95_low": 1.6996,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 1.8125
+        },
+        {
+          "ci_95_high": 1.9282,
+          "ci_95_low": 1.6639,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 1.792
+        },
+        {
+          "ci_95_high": 1.891,
+          "ci_95_low": 1.5944,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 1.7385
+        },
+        {
+          "ci_95_high": 1.8205,
+          "ci_95_low": 1.5844,
+          "model": "llada2.1-flash",
+          "observed_mean": 1.6965
+        },
+        {
+          "ci_95_high": 1.6657,
+          "ci_95_low": 1.4528,
+          "model": "qwen3.5-9b",
+          "observed_mean": 1.5576
+        }
+      ],
+      "D4": [
+        {
+          "ci_95_high": 3.1574,
+          "ci_95_low": 2.6691,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 2.909
+        },
+        {
+          "ci_95_high": 2.7546,
+          "ci_95_low": 2.2826,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 2.5177
+        },
+        {
+          "ci_95_high": 2.7212,
+          "ci_95_low": 2.3006,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 2.5142
+        },
+        {
+          "ci_95_high": 2.4358,
+          "ci_95_low": 2.1416,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 2.2913
+        },
+        {
+          "ci_95_high": 2.3967,
+          "ci_95_low": 2.0319,
+          "model": "command-a-03-2025",
+          "observed_mean": 2.2188
+        },
+        {
+          "ci_95_high": 2.3556,
+          "ci_95_low": 2.0198,
+          "model": "glm-5.1",
+          "observed_mean": 2.1892
+        },
+        {
+          "ci_95_high": 2.2076,
+          "ci_95_low": 1.9857,
+          "model": "llada2.1-flash",
+          "observed_mean": 2.0931
+        },
+        {
+          "ci_95_high": 2.1941,
+          "ci_95_low": 1.9573,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 2.0764
+        },
+        {
+          "ci_95_high": 2.1681,
+          "ci_95_low": 1.9232,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 2.0358
+        },
+        {
+          "ci_95_high": 2.1295,
+          "ci_95_low": 1.9076,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 2.017
+        },
+        {
+          "ci_95_high": 2.1427,
+          "ci_95_low": 1.8403,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 1.9903
+        },
+        {
+          "ci_95_high": 2.0979,
+          "ci_95_low": 1.8649,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 1.9774
+        },
+        {
+          "ci_95_high": 2.0903,
+          "ci_95_low": 1.8354,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 1.9566
+        },
+        {
+          "ci_95_high": 1.9708,
+          "ci_95_low": 1.7701,
+          "model": "qwen3.5-9b",
+          "observed_mean": 1.8684
+        }
+      ],
+      "D5": [
+        {
+          "ci_95_high": 3.012,
+          "ci_95_low": 2.7853,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 2.886
+        },
+        {
+          "ci_95_high": 2.9477,
+          "ci_95_low": 2.741,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 2.8497
+        },
+        {
+          "ci_95_high": 2.8673,
+          "ci_95_low": 2.6486,
+          "model": "command-a-03-2025",
+          "observed_mean": 2.7537
+        },
+        {
+          "ci_95_high": 2.8213,
+          "ci_95_low": 2.5873,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 2.703
+        },
+        {
+          "ci_95_high": 2.8207,
+          "ci_95_low": 2.5866,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 2.702
+        },
+        {
+          "ci_95_high": 2.7847,
+          "ci_95_low": 2.594,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 2.6907
+        },
+        {
+          "ci_95_high": 2.7734,
+          "ci_95_low": 2.6033,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 2.688
+        },
+        {
+          "ci_95_high": 2.792,
+          "ci_95_low": 2.564,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 2.6753
+        },
+        {
+          "ci_95_high": 2.79,
+          "ci_95_low": 2.55,
+          "model": "glm-5.1",
+          "observed_mean": 2.6713
+        },
+        {
+          "ci_95_high": 2.8017,
+          "ci_95_low": 2.533,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 2.655
+        },
+        {
+          "ci_95_high": 2.7287,
+          "ci_95_low": 2.5216,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 2.6243
+        },
+        {
+          "ci_95_high": 2.544,
+          "ci_95_low": 2.384,
+          "model": "llada2.1-flash",
+          "observed_mean": 2.461
+        },
+        {
+          "ci_95_high": 2.532,
+          "ci_95_low": 2.3456,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 2.4443
+        },
+        {
+          "ci_95_high": 2.45,
+          "ci_95_low": 2.2716,
+          "model": "qwen3.5-9b",
+          "observed_mean": 2.354
+        }
+      ],
+      "D6": [
+        {
+          "ci_95_high": 2.4212,
+          "ci_95_low": 2.1996,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 2.3031
+        },
+        {
+          "ci_95_high": 2.2677,
+          "ci_95_low": 2.058,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 2.1601
+        },
+        {
+          "ci_95_high": 2.1215,
+          "ci_95_low": 2.0309,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 2.0736
+        },
+        {
+          "ci_95_high": 2.0844,
+          "ci_95_low": 1.9899,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 2.0295
+        },
+        {
+          "ci_95_high": 1.9983,
+          "ci_95_low": 1.9795,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 1.9899
+        },
+        {
+          "ci_95_high": 1.9931,
+          "ci_95_low": 1.9562,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 1.9771
+        },
+        {
+          "ci_95_high": 1.9899,
+          "ci_95_low": 1.9503,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 1.9722
+        },
+        {
+          "ci_95_high": 1.9851,
+          "ci_95_low": 1.942,
+          "model": "glm-5.1",
+          "observed_mean": 1.966
+        },
+        {
+          "ci_95_high": 1.9781,
+          "ci_95_low": 1.9371,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 1.959
+        },
+        {
+          "ci_95_high": 1.9986,
+          "ci_95_low": 1.9128,
+          "model": "command-a-03-2025",
+          "observed_mean": 1.9524
+        },
+        {
+          "ci_95_high": 1.959,
+          "ci_95_low": 1.8851,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 1.9257
+        },
+        {
+          "ci_95_high": 1.9316,
+          "ci_95_low": 1.8795,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 1.9059
+        },
+        {
+          "ci_95_high": 1.8896,
+          "ci_95_low": 1.8309,
+          "model": "llada2.1-flash",
+          "observed_mean": 1.8587
+        },
+        {
+          "ci_95_high": 1.8427,
+          "ci_95_low": 1.7937,
+          "model": "qwen3.5-9b",
+          "observed_mean": 1.8184
+        }
+      ],
+      "D7": [
+        {
+          "ci_95_high": 2.9179,
+          "ci_95_low": 2.5461,
+          "model": "hermes-3-llama-3.1-405b",
+          "observed_mean": 2.7312
+        },
+        {
+          "ci_95_high": 2.8652,
+          "ci_95_low": 2.5488,
+          "model": "llama4-maverick-17b-128e-moe",
+          "observed_mean": 2.7033
+        },
+        {
+          "ci_95_high": 2.5902,
+          "ci_95_low": 2.2631,
+          "model": "llama-3.3-70b-instruct",
+          "observed_mean": 2.4233
+        },
+        {
+          "ci_95_high": 2.2515,
+          "ci_95_low": 1.9762,
+          "model": "gemma-4-31b-it",
+          "observed_mean": 2.103
+        },
+        {
+          "ci_95_high": 2.1227,
+          "ci_95_low": 1.8631,
+          "model": "command-a-03-2025",
+          "observed_mean": 1.9837
+        },
+        {
+          "ci_95_high": 2.0325,
+          "ci_95_low": 1.8778,
+          "model": "deepseek-v4-flash",
+          "observed_mean": 1.9538
+        },
+        {
+          "ci_95_high": 2.0075,
+          "ci_95_low": 1.83,
+          "model": "glm-5.1",
+          "observed_mean": 1.921
+        },
+        {
+          "ci_95_high": 2.0043,
+          "ci_95_low": 1.8271,
+          "model": "qwen3.5-397b-a17b-moe",
+          "observed_mean": 1.914
+        },
+        {
+          "ci_95_high": 1.9629,
+          "ci_95_low": 1.7437,
+          "model": "mistral-medium-3.5",
+          "observed_mean": 1.8525
+        },
+        {
+          "ci_95_high": 1.8777,
+          "ci_95_low": 1.6495,
+          "model": "qwen3.5-122b-a10b",
+          "observed_mean": 1.7548
+        },
+        {
+          "ci_95_high": 1.7527,
+          "ci_95_low": 1.6227,
+          "model": "qwen3.6-27b-fp8",
+          "observed_mean": 1.6897
+        },
+        {
+          "ci_95_high": 1.7482,
+          "ci_95_low": 1.6137,
+          "model": "llada2.1-flash",
+          "observed_mean": 1.6742
+        },
+        {
+          "ci_95_high": 1.7477,
+          "ci_95_low": 1.5695,
+          "model": "qwen3.6-35b-a3b-q8_0",
+          "observed_mean": 1.6695
+        },
+        {
+          "ci_95_high": 1.6373,
+          "ci_95_low": 1.5418,
+          "model": "qwen3.5-9b",
+          "observed_mean": 1.5892
+        }
+      ]
+    },
+    "weighted_composite_caveat": "D2 (Biblical Knowledge) and D6 (Heresiological Knowledge) typically have very small per-domain paired-question counts (~2 in the current interim subset). Within-domain bootstrap for those two domains is degenerate; the composite CI inherits this caveat. Combined D2+D6 weight is 31.5%. Per supplemental_interjudge_reliability_statistical_methods_2026_05_03.md \u00a716.",
+    "weighted_composite_leaderboard": [
+      {
+        "ci_95_high": 3.0843,
+        "ci_95_low": 2.9371,
+        "composite_ci_95_high": 2.8796,
+        "composite_ci_95_low": 2.7222,
+        "composite_median_bootstrap_rank": 1.0,
+        "composite_observed": 2.7995,
+        "composite_observed_rank": 1,
+        "composite_rank_95_high": 1.0,
+        "composite_rank_95_low": 1.0,
+        "composite_top_1_rate": 1.0,
+        "composite_top_3_rate": 1.0,
+        "median_bootstrap_rank": 1.0,
+        "model": "hermes-3-llama-3.1-405b",
+        "observed_mean": 3.0119,
+        "observed_rank": 1,
+        "paired_rows": 687,
+        "rank_95_high": 1.0,
+        "rank_95_low": 1.0,
+        "top_1_rate": 1.0,
+        "top_3_rate": 1.0
+      },
+      {
+        "ci_95_high": 2.8846,
+        "ci_95_low": 2.7598,
+        "composite_ci_95_high": 2.6176,
+        "composite_ci_95_low": 2.4975,
+        "composite_median_bootstrap_rank": 2.0,
+        "composite_observed": 2.5557,
+        "composite_observed_rank": 2,
+        "composite_rank_95_high": 3.0,
+        "composite_rank_95_low": 2.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.999,
+        "median_bootstrap_rank": 2.0,
+        "model": "llama4-maverick-17b-128e-moe",
+        "observed_mean": 2.8218,
+        "observed_rank": 2,
+        "paired_rows": 687,
+        "rank_95_high": 3.0,
+        "rank_95_low": 2.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.988
+      },
+      {
+        "ci_95_high": 2.802,
+        "ci_95_low": 2.6665,
+        "composite_ci_95_high": 2.5568,
+        "composite_ci_95_low": 2.4335,
+        "composite_median_bootstrap_rank": 3.0,
+        "composite_observed": 2.4952,
+        "composite_observed_rank": 3,
+        "composite_rank_95_high": 4.0,
+        "composite_rank_95_low": 3.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.873,
+        "median_bootstrap_rank": 6.0,
+        "model": "llama-3.3-70b-instruct",
+        "observed_mean": 2.7342,
+        "observed_rank": 6,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 3.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.093
+      },
+      {
+        "ci_95_high": 2.8079,
+        "ci_95_low": 2.6989,
+        "composite_ci_95_high": 2.5051,
+        "composite_ci_95_low": 2.4048,
+        "composite_median_bootstrap_rank": 4.0,
+        "composite_observed": 2.4566,
+        "composite_observed_rank": 4,
+        "composite_rank_95_high": 4.0,
+        "composite_rank_95_low": 3.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.128,
+        "median_bootstrap_rank": 4.0,
+        "model": "gemma-4-31b-it",
+        "observed_mean": 2.7542,
+        "observed_rank": 4,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 3.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.205
+      },
+      {
+        "ci_95_high": 2.812,
+        "ci_95_low": 2.7321,
+        "composite_ci_95_high": 2.4372,
+        "composite_ci_95_low": 2.3595,
+        "composite_median_bootstrap_rank": 5.0,
+        "composite_observed": 2.3978,
+        "composite_observed_rank": 5,
+        "composite_rank_95_high": 7.0,
+        "composite_rank_95_low": 5.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 3.0,
+        "model": "qwen3.5-397b-a17b-moe",
+        "observed_mean": 2.7725,
+        "observed_rank": 3,
+        "paired_rows": 687,
+        "rank_95_high": 5.0,
+        "rank_95_low": 2.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.692
+      },
+      {
+        "ci_95_high": 2.7825,
+        "ci_95_low": 2.7027,
+        "composite_ci_95_high": 2.4245,
+        "composite_ci_95_low": 2.3434,
+        "composite_median_bootstrap_rank": 6.0,
+        "composite_observed": 2.383,
+        "composite_observed_rank": 6,
+        "composite_rank_95_high": 8.0,
+        "composite_rank_95_low": 5.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 5.0,
+        "model": "deepseek-v4-flash",
+        "observed_mean": 2.7421,
+        "observed_rank": 5,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 4.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.022
+      },
+      {
+        "ci_95_high": 2.7603,
+        "ci_95_low": 2.6714,
+        "composite_ci_95_high": 2.4108,
+        "composite_ci_95_low": 2.3214,
+        "composite_median_bootstrap_rank": 7.0,
+        "composite_observed": 2.3681,
+        "composite_observed_rank": 7,
+        "composite_rank_95_high": 8.0,
+        "composite_rank_95_low": 5.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 7.0,
+        "model": "glm-5.1",
+        "observed_mean": 2.719,
+        "observed_rank": 7,
+        "paired_rows": 687,
+        "rank_95_high": 7.0,
+        "rank_95_low": 5.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.6833,
+        "ci_95_low": 2.5605,
+        "composite_ci_95_high": 2.406,
+        "composite_ci_95_low": 2.2916,
+        "composite_median_bootstrap_rank": 8.0,
+        "composite_observed": 2.3452,
+        "composite_observed_rank": 8,
+        "composite_rank_95_high": 8.0,
+        "composite_rank_95_low": 6.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 8.0,
+        "model": "command-a-03-2025",
+        "observed_mean": 2.6213,
+        "observed_rank": 8,
+        "paired_rows": 687,
+        "rank_95_high": 10.0,
+        "rank_95_low": 8.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.6622,
+        "ci_95_low": 2.5619,
+        "composite_ci_95_high": 2.3206,
+        "composite_ci_95_low": 2.2333,
+        "composite_median_bootstrap_rank": 9.0,
+        "composite_observed": 2.2771,
+        "composite_observed_rank": 9,
+        "composite_rank_95_high": 10.0,
+        "composite_rank_95_low": 9.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 9.0,
+        "model": "qwen3.5-122b-a10b",
+        "observed_mean": 2.614,
+        "observed_rank": 9,
+        "paired_rows": 687,
+        "rank_95_high": 10.0,
+        "rank_95_low": 8.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.5867,
+        "ci_95_low": 2.4866,
+        "composite_ci_95_high": 2.3092,
+        "composite_ci_95_low": 2.2191,
+        "composite_median_bootstrap_rank": 10.0,
+        "composite_observed": 2.2626,
+        "composite_observed_rank": 10,
+        "composite_rank_95_high": 11.0,
+        "composite_rank_95_low": 9.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 11.0,
+        "model": "qwen3.6-35b-a3b-q8_0",
+        "observed_mean": 2.5386,
+        "observed_rank": 11,
+        "paired_rows": 687,
+        "rank_95_high": 12.0,
+        "rank_95_low": 10.98,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.6286,
+        "ci_95_low": 2.5272,
+        "composite_ci_95_high": 2.2799,
+        "composite_ci_95_low": 2.1914,
+        "composite_median_bootstrap_rank": 11.0,
+        "composite_observed": 2.237,
+        "composite_observed_rank": 11,
+        "composite_rank_95_high": 12.0,
+        "composite_rank_95_low": 10.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 10.0,
+        "model": "mistral-medium-3.5",
+        "observed_mean": 2.5826,
+        "observed_rank": 10,
+        "paired_rows": 687,
+        "rank_95_high": 11.0,
+        "rank_95_low": 9.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.58,
+        "ci_95_low": 2.484,
+        "composite_ci_95_high": 2.2653,
+        "composite_ci_95_low": 2.1899,
+        "composite_median_bootstrap_rank": 12.0,
+        "composite_observed": 2.2252,
+        "composite_observed_rank": 12,
+        "composite_rank_95_high": 12.0,
+        "composite_rank_95_low": 11.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 12.0,
+        "model": "qwen3.6-27b-fp8",
+        "observed_mean": 2.5323,
+        "observed_rank": 12,
+        "paired_rows": 687,
+        "rank_95_high": 12.0,
+        "rank_95_low": 11.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.258,
+        "ci_95_low": 2.1464,
+        "composite_ci_95_high": 2.0936,
+        "composite_ci_95_low": 2.0173,
+        "composite_median_bootstrap_rank": 13.0,
+        "composite_observed": 2.0532,
+        "composite_observed_rank": 13,
+        "composite_rank_95_high": 13.0,
+        "composite_rank_95_low": 13.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 13.0,
+        "model": "llada2.1-flash",
+        "observed_mean": 2.2025,
+        "observed_rank": 13,
+        "paired_rows": 687,
+        "rank_95_high": 13.0,
+        "rank_95_low": 13.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      },
+      {
+        "ci_95_high": 2.1856,
+        "ci_95_low": 2.0903,
+        "composite_ci_95_high": 1.9811,
+        "composite_ci_95_low": 1.911,
+        "composite_median_bootstrap_rank": 14.0,
+        "composite_observed": 1.9451,
+        "composite_observed_rank": 14,
+        "composite_rank_95_high": 14.0,
+        "composite_rank_95_low": 14.0,
+        "composite_top_1_rate": 0.0,
+        "composite_top_3_rate": 0.0,
+        "median_bootstrap_rank": 14.0,
+        "model": "qwen3.5-9b",
+        "observed_mean": 2.1386,
+        "observed_rank": 14,
+        "paired_rows": 687,
+        "rank_95_high": 14.0,
+        "rank_95_low": 14.0,
+        "top_1_rate": 0.0,
+        "top_3_rate": 0.0
+      }
+    ],
+    "weighted_composite_weights": {
+      "D1": 0.08,
+      "D2": 0.17,
+      "D3": 0.175,
+      "D4": 0.07,
+      "D5": 0.14,
+      "D6": 0.145,
+      "D7": 0.22
+    }
+  },
+  "coverage": {
+    "by_domain": {
+      "D1": {
+        "domain_display_name": "Ancient Languages",
+        "domain_id": 1,
+        "domain_name": "ancient_languages",
+        "paired_models": 14,
+        "paired_questions": 66,
+        "paired_rows": 2772
+      },
+      "D2": {
+        "domain_display_name": "Biblical Knowledge",
+        "domain_id": 2,
+        "domain_name": "biblical_knowledge",
+        "paired_models": 14,
+        "paired_questions": 16,
+        "paired_rows": 672
+      },
+      "D3": {
+        "domain_display_name": "Patristic Knowledge",
+        "domain_id": 3,
+        "domain_name": "patristic_knowledge",
+        "paired_models": 14,
+        "paired_questions": 24,
+        "paired_rows": 1008
+      },
+      "D4": {
+        "domain_display_name": "Early Christian History",
+        "domain_id": 4,
+        "domain_name": "early_christian_history",
+        "paired_models": 14,
+        "paired_questions": 24,
+        "paired_rows": 1008
+      },
+      "D5": {
+        "domain_display_name": "Theological Knowledge and Nuance",
+        "domain_id": 5,
+        "domain_name": "theological_knowledge",
+        "paired_models": 14,
+        "paired_questions": 25,
+        "paired_rows": 1050
+      },
+      "D6": {
+        "domain_display_name": "Heresiological Knowledge",
+        "domain_id": 6,
+        "domain_name": "heresiological_knowledge",
+        "paired_models": 14,
+        "paired_questions": 24,
+        "paired_rows": 1008
+      },
+      "D7": {
+        "domain_display_name": "Marcion Studies Knowledge",
+        "domain_id": 7,
+        "domain_name": "marcion_studies",
+        "paired_models": 14,
+        "paired_questions": 50,
+        "paired_rows": 2100
+      }
+    },
+    "claude_rows_matching_filter": 9618,
+    "codex_rows_matching_filter": 9618,
+    "is_partial_judge_overlap": false,
+    "paired_fraction_of_claude": 1.0,
+    "paired_fraction_of_codex": 1.0,
+    "paired_rows": 9618
+  },
+  "metadata": {
+    "analysis_label": "final_2026_05_07",
+    "bootstrap_interval_type": "percentile",
+    "bootstrap_reps": 1000,
+    "claude_model": "claude-opus-4-7-medium-claude-cli",
+    "claude_version_like": "%claude_opus_4_7_medium_comparison",
+    "codex_model": "gpt-5.5-medium-codex-cli",
+    "codex_version_like": "%codex_gpt_5_5_medium_primary",
+    "db_path": "data/mars_bench_stats_public.sqlite",
+    "paired_rows_sha256": "f61d100ca53ea9c6fc5d0eb98e35f2cc4de45afc45108643d534cb5ef6e1bf34",
+    "partial_results_warning": null,
+    "release_created_at": "2026-04-28 13:16:48",
+    "release_id": 10,
+    "release_label": "mars_bench_v2_0_d1_d2_d3_d4_d5_d6_d7_rebuild_candidate",
+    "release_status": "candidate",
+    "rng_implementation": "random.Random (Mersenne Twister)",
+    "script_git": {
+      "dirty": true,
+      "script_path": "scripts/cluster_bootstrap_mars_results.py",
+      "sha": "b9374af8488249c888db4ef2e04a999ac3a5e842"
+    },
+    "seed": 20260503
+  }
+}

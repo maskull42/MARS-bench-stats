@@ -1,0 +1,15 @@
+model,all_release_responses,paired_responses,ri_failures,by_domain,ri_failure_rate,rule_of_three_upper_95_if_zero
+command-a-03-2025,753,687,2,{'D3': 2},0.002656,
+deepseek-v4-flash,753,687,0,{},0.0,0.003984
+gemma-4-31b-it,753,687,0,{},0.0,0.003984
+glm-5.1,753,687,0,{},0.0,0.003984
+hermes-3-llama-3.1-405b,753,687,0,{},0.0,0.003984
+llada2.1-flash,753,687,0,{},0.0,0.003984
+llama-3.3-70b-instruct,753,687,0,{},0.0,0.003984
+llama4-maverick-17b-128e-moe,753,687,0,{},0.0,0.003984
+mistral-medium-3.5,753,687,0,{},0.0,0.003984
+qwen3.5-122b-a10b,753,687,1,{'D7': 1},0.001328,
+qwen3.5-397b-a17b-moe,753,687,0,{},0.0,0.003984
+qwen3.5-9b,753,687,2,{'D1': 2},0.002656,
+qwen3.6-27b-fp8,753,687,2,"{'D4': 1, 'D7': 1}",0.002656,
+qwen3.6-35b-a3b-q8_0,753,687,5,{'D7': 5},0.00664,

@@ -1,0 +1,15 @@
+model,score,rank
+hermes-3-llama-3.1-405b,2.7995,1
+llama4-maverick-17b-128e-moe,2.5557,2
+llama-3.3-70b-instruct,2.4952,3
+gemma-4-31b-it,2.4566,4
+qwen3.5-397b-a17b-moe,2.3978,5
+deepseek-v4-flash,2.383,6
+glm-5.1,2.3681,7
+command-a-03-2025,2.3452,8
+qwen3.5-122b-a10b,2.2771,9
+qwen3.6-35b-a3b-q8_0,2.2626,10
+mistral-medium-3.5,2.237,11
+qwen3.6-27b-fp8,2.2252,12
+llada2.1-flash,2.0532,13
+qwen3.5-9b,1.9451,14

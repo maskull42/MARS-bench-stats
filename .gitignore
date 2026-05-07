@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.pytest_cache/
+
+# The compressed public SQLite artifact is tracked. The uncompressed copy is
+# generated locally with `gzip -dk data/mars_bench_stats_public.sqlite.gz`.
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+data/*.sqlite-journal
+!data/*.sqlite.gz
+

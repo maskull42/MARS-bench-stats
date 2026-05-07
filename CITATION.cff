@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as the statistical replication package for MARS-Bench."
+title: "MARS-Bench Statistical Replication Package"
+version: "2026.05.07"
+date-released: "2026-05-07"
+license: "MIT"
+repository-code: "https://github.com/maskull42/MARS-bench-stats"
+authors:
+  - family-names: "Elrod"
+    given-names: "Andrew"
+
