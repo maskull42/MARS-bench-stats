@@ -2,17 +2,18 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20067936.svg)](https://doi.org/10.5281/zenodo.20067936)
 
+Current release: **v2026.05.10**. The accompanying paper, "As If, Not As Way: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation," cites v2026.05.07 (Zenodo DOI [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936)). The paper's two-judge analyses continue to reproduce byte-identically against the v2026.05.10 database; v2026.05.10 adds DeepSeek V4 Flash via the OpenCode agentic harness as a third judge lane and the corresponding three-judge re-analysis. See `CHANGELOG.md` for the full revision history.
+
 This repository contains the publication-safe data export, statistical code,
 and final measurement outputs for the MARS-Bench agentic digital humanities
-benchmark analysis prepared on 2026-05-07.
-
-The package is designed to support reproducibility for the accompanying paper:
-the public database includes benchmark questions, reference answers, model
-responses, judge scores, judge notes, audit notes, audit flags, prompt/rubric
-materials, and provenance hashes needed to regenerate the final statistics.
-Machine-local paths, private worker/account tables, worker-claim state, and raw
-long-form source/context packet bodies have been removed or redacted. Structured
-lexical, syntactic, and provenance metadata needed for replication is retained.
+benchmark analysis. The package is designed to support reproducibility for the
+accompanying paper: the public database includes benchmark questions, reference
+answers, model responses, judge scores, judge notes, audit notes, audit flags,
+prompt/rubric materials, and provenance hashes needed to regenerate the final
+statistics. Machine-local paths, private worker/account tables, worker-claim
+state, and raw long-form source/context packet bodies have been removed or
+redacted. Structured lexical, syntactic, and provenance metadata needed for
+replication is retained.
 
 ## Repository Contents
 
@@ -25,10 +26,23 @@ lexical, syntactic, and provenance metadata needed for replication is retained.
   cluster-aware bootstrap analysis.
 - `scripts/run_bias_and_selection_diagnostics.py`: final model-selection,
   bias, stability, distribution, and appendix diagnostics.
-- `results/cluster_bootstrap/`: final cluster bootstrap JSON/CSV outputs.
-- `results/diagnostics/`: final diagnostic JSON/CSV outputs.
+- `scripts/three_judge_analysis.py` (added in v2026.05.10): three-judge
+  re-analysis adding DeepSeek V4 Flash via OpenCode CLI to the original
+  Codex+Claude pair. Computes ICC(A,1) and ICC(A,k=3), pairwise reliability
+  for the three lane pairs, three-judge role-weighted composites, paired
+  Llama-Gemma cluster bootstrap under the three-judge mean, and a per-model
+  DeepSeek-as-judge offset diagnostic for self-preference probing.
+- `results/cluster_bootstrap/`: final cluster bootstrap JSON/CSV outputs
+  (frozen at v2026.05.07).
+- `results/diagnostics/`: final diagnostic JSON/CSV outputs (frozen at
+  v2026.05.07).
+- `results/three_judge/` (added in v2026.05.10): three-judge analysis outputs
+  for the v2026.05.10 release.
 - `reports/final_statistical_methods_and_findings.md`: detailed methods,
-  formulas, data locations, and numerical findings.
+  formulas, data locations, and numerical findings (frozen at v2026.05.07).
+- `reports/three_judge_analysis_2026_05_10.md` (added in v2026.05.10):
+  methods and findings for the three-judge re-analysis.
+- `CHANGELOG.md`: release history.
 - `legacy_reference_scripts/`: earlier statistical scripts preserved for
   audit history and method continuity.
 - `docs/`: data-export, response-set, and publication-safety notes.
@@ -65,6 +79,18 @@ Run the final bias, selection, and appendix diagnostics:
 
 ```bash
 python scripts/run_bias_and_selection_diagnostics.py
+```
+
+Run the three-judge re-analysis (v2026.05.10 addition):
+
+```bash
+python scripts/three_judge_analysis.py \
+  --db data/mars_bench_stats_public.sqlite \
+  --release-label mars_bench_v2_0_d1_d2_d3_d4_d5_d6_d7_rebuild_candidate \
+  --output-dir results/three_judge \
+  --label final_2026_05_10 \
+  --bootstrap-reps 1000 \
+  --seed 20260503
 ```
 
 The public database contains 251 release questions and 10,542 release
