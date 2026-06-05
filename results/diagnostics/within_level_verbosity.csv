@@ -5,6 +5,9 @@ command-a-03-2025,L3,597,-0.6523,0.0
 deepseek-v4-flash,L1,9,0.1283,0.74228159
 deepseek-v4-flash,L2,81,0.1873,0.09402263
 deepseek-v4-flash,L3,597,-0.7061,0.0
+gemma-4-12b-it-q8_0-llamacpp-a6000,L1,9,-0.3819,0.31049406
+gemma-4-12b-it-q8_0-llamacpp-a6000,L2,81,-0.0619,0.58325231
+gemma-4-12b-it-q8_0-llamacpp-a6000,L3,597,-0.1205,0.00318314
 gemma-4-31b-it,L1,9,0.6403,0.06323841
 gemma-4-31b-it,L2,81,0.1249,0.26640116
 gemma-4-31b-it,L3,597,-0.6366,0.0

@@ -40,11 +40,17 @@ def sha256_file(path: Path) -> str:
     return h.hexdigest()
 
 
+def clean_unicode(value: str) -> str:
+    return value.encode("utf-8", errors="replace").decode("utf-8")
+
+
 def sha256_text(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+    return hashlib.sha256(clean_unicode(value).encode("utf-8")).hexdigest()
 
 
 def redact_local_paths(value: str) -> str:
+    value = clean_unicode(value)
+
     def repl(match: re.Match[str]) -> str:
         raw = match.group(0)
         return f"[redacted-local-path:{Path(raw).name}]"

@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20067936.svg)](https://doi.org/10.5281/zenodo.20067936)
 
-Current release: **v2026.05.10**. The accompanying paper, "As If, Not As Way: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation," cites v2026.05.07 (Zenodo DOI [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936)). The paper's two-judge analyses continue to reproduce byte-identically against the v2026.05.10 database; v2026.05.10 adds DeepSeek V4 Flash via the OpenCode agentic harness as a third judge lane and the corresponding three-judge re-analysis. See `CHANGELOG.md` for the full revision history.
+Current release: **v2026.06.05**. The accompanying paper, "As If, Not As Way: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation," cites v2026.05.07 (Zenodo DOI [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936)). The v2026.06.05 package adds the Gemma 4 12B A6000 run, its completed primary Codex/Claude/DeepSeek judging rows, and fully recalculated two-judge, three-judge, and diagnostic statistics. See `CHANGELOG.md` for the full revision history.
 
 This repository contains the publication-safe data export, statistical code,
 and final measurement outputs for the MARS-Bench agentic digital humanities
@@ -26,22 +26,24 @@ replication is retained.
   cluster-aware bootstrap analysis.
 - `scripts/run_bias_and_selection_diagnostics.py`: final model-selection,
   bias, stability, distribution, and appendix diagnostics.
-- `scripts/three_judge_analysis.py` (added in v2026.05.10): three-judge
-  re-analysis adding DeepSeek V4 Flash via OpenCode CLI to the original
+- `scripts/three_judge_analysis.py` (added in v2026.05.10, updated in
+  v2026.06.05): three-judge re-analysis adding DeepSeek V4 Flash via OpenCode
+  CLI to the original
   Codex+Claude pair. Computes ICC(A,1) and ICC(A,k=3), pairwise reliability
   for the three lane pairs, three-judge role-weighted composites, paired
   Llama-Gemma cluster bootstrap under the three-judge mean, and a per-model
   DeepSeek-as-judge offset diagnostic for self-preference probing.
-- `results/cluster_bootstrap/`: final cluster bootstrap JSON/CSV outputs
-  (frozen at v2026.05.07).
-- `results/diagnostics/`: final diagnostic JSON/CSV outputs (frozen at
-  v2026.05.07).
+- `results/cluster_bootstrap/`: final cluster bootstrap JSON/CSV outputs.
+- `results/diagnostics/`: final diagnostic JSON/CSV outputs.
 - `results/three_judge/` (added in v2026.05.10): three-judge analysis outputs
-  for the v2026.05.10 release.
+  for the v2026.05.10 and v2026.06.05 releases.
 - `reports/final_statistical_methods_and_findings.md`: detailed methods,
-  formulas, data locations, and numerical findings (frozen at v2026.05.07).
+  formulas, data locations, and numerical findings.
 - `reports/three_judge_analysis_2026_05_10.md` (added in v2026.05.10):
   methods and findings for the three-judge re-analysis.
+- `reports/three_judge_analysis_2026_06_05.md` (added in v2026.06.05):
+  methods and findings for the three-judge re-analysis after the Gemma 4 12B
+  addition.
 - `CHANGELOG.md`: release history.
 - `legacy_reference_scripts/`: earlier statistical scripts preserved for
   audit history and method continuity.
@@ -70,7 +72,7 @@ python scripts/cluster_bootstrap_mars_results.py \
   --db data/mars_bench_stats_public.sqlite \
   --release-label mars_bench_v2_0_d1_d2_d3_d4_d5_d6_d7_rebuild_candidate \
   --output-dir results/cluster_bootstrap \
-  --label final_2026_05_07 \
+  --label final_2026_06_05 \
   --bootstrap-reps 1000 \
   --seed 20260503
 ```
@@ -78,7 +80,11 @@ python scripts/cluster_bootstrap_mars_results.py \
 Run the final bias, selection, and appendix diagnostics:
 
 ```bash
-python scripts/run_bias_and_selection_diagnostics.py
+python scripts/run_bias_and_selection_diagnostics.py \
+  --db data/mars_bench_stats_public.sqlite \
+  --cluster-json results/cluster_bootstrap/final_2026_06_05_cluster_bootstrap_results.json \
+  --results-dir results/diagnostics \
+  --report reports/final_statistical_methods_and_findings.md
 ```
 
 Run the three-judge re-analysis (v2026.05.10 addition):
@@ -88,18 +94,19 @@ python scripts/three_judge_analysis.py \
   --db data/mars_bench_stats_public.sqlite \
   --release-label mars_bench_v2_0_d1_d2_d3_d4_d5_d6_d7_rebuild_candidate \
   --output-dir results/three_judge \
-  --label final_2026_05_10 \
+  --label final_2026_06_05 \
   --bootstrap-reps 1000 \
   --seed 20260503
 ```
 
-The public database contains 251 release questions and 10,542 release
-responses. The paired model-selection analysis uses 229 questions and 9,618
-paired Codex-Claude response rows. The remaining 924 responses are current
-release D1 structured morphology adjunct rows: 22 questions x 14 models x 3
-runs. Those rows were scored only by `d1-structured-morphology-scorer-2026-04-25`
-and have no final paired Codex-Claude evaluations, so they are not included in
-the paired model-selection statistics.
+The public database contains 251 release questions and 11,295 release
+responses. The paired model-selection analysis uses 229 questions and 10,305
+paired Codex-Claude response rows across 15 models. The remaining 990 responses
+are current release D1 structured morphology adjunct rows: 22 questions x 15
+models x 3 runs. Those rows were scored only by
+`d1-structured-morphology-scorer-2026-04-25` and have no final paired
+Codex-Claude evaluations, so they are not included in the paired
+model-selection statistics.
 
 The final paired filter uses the Codex judge model
 `gpt-5.5-medium-codex-cli` and the Claude judge model
@@ -195,7 +202,7 @@ Non-expert interpretation: if ICC(A,k) is high, the average of the two judge
 lanes is stable enough to use as the main score. Bland-Altman limits show how
 large individual row disagreements can still be.
 
-Final finding: ICC(A,2) is 0.962 with a bootstrap 95% CI of 0.9573 to 0.9660.
+Final finding: ICC(A,2) is 0.9617 with a bootstrap 95% CI of 0.9572 to 0.9656.
 
 ### 2. Cluster-Aware Bootstrap Ranking
 
@@ -295,7 +302,7 @@ Non-expert interpretation: this separates real performance from a tendency to
 write more words. It is especially relevant because long theological prose can
 sound scholarly even when it is not more accurate.
 
-Final finding: the overall adjusted log-word coefficient is -0.450366
+Final finding: the overall adjusted log-word coefficient is -0.447318
 (`p < 0.001` in the OLS diagnostic), so longer answers were not generally being
 rewarded after the covariates used here.
 

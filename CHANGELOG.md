@@ -4,6 +4,30 @@ All notable changes to the MARS-Bench Statistical Replication Package are record
 
 The format follows the conventions of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the package adheres to a date-based versioning scheme (`vYYYY.MM.DD`).
 
+## [v2026.06.05] — 2026-06-05
+
+### Added
+
+- Gemma 4 12B A6000 local run: `gemma-4-12b-it-q8_0-llamacpp-a6000`, generated with llama.cpp OpenAI-compatible serving and Q8_0 GGUF weights.
+- Completed primary judging rows for Gemma 4 12B under Codex medium (`gpt-5.5-medium-codex-cli`), Claude medium (`claude-opus-4-7-medium-claude-cli`), and DeepSeek V4 Flash via OpenRouter (`deepseek-v4-flash-openrouter-opencode-cli`).
+- `results/cluster_bootstrap/final_2026_06_05_*`: recalculated two-judge cluster bootstrap artifacts for 15 models and 10,305 paired Codex-Claude rows.
+- `results/three_judge/final_2026_06_05_*`: recalculated three-judge artifacts with DeepSeek Flash served through DeepInfra for the original cohort and OpenRouter for Gemma 4 12B.
+- `reports/three_judge_analysis_2026_06_05.md`: June 5 three-judge methods-and-findings report.
+
+### Changed
+
+- `data/mars_bench_stats_public.sqlite.gz`: re-exported from the current working database. The public export now contains 251 release questions, 11,295 release responses, 54,264 evaluation rows, 10,305 paired Codex-Claude rows, and 990 D1 structured morphology adjunct responses.
+- `reports/final_statistical_methods_and_findings.md` and `results/diagnostics/*`: recalculated against the expanded 15-model paired-analysis cohort.
+- `scripts/three_judge_analysis.py`: accepts both DeepInfra and OpenRouter DeepSeek V4 Flash production judge lanes while continuing to exclude DeepSeek V4 Pro rows.
+- `scripts/run_bias_and_selection_diagnostics.py`: computes nonpaired-response explanatory text from the database instead of using stale fixed counts.
+- `scripts/cluster_bootstrap_mars_results.py`: removes stale fixed morphology-row counts from the composite caveat.
+- `data/SHA256SUMS`: updated for the June 5 database, result artifacts, and reports.
+
+### Notes
+
+- The two-judge role-weighted top four are unchanged in order: Hermes 3 405B, Llama 4 Maverick, Llama 3.3 70B, and Gemma 4 31B. The Llama 3.3 minus Gemma 4 31B paired composite CI still includes zero.
+- Gemma 4 12B is included in the public statistics as a benchmarked candidate model, not as a selection replacement.
+
 ## [v2026.05.10] — 2026-05-10
 
 ### Added

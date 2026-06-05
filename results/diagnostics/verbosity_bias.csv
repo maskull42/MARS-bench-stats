@@ -1,6 +1,7 @@
 model,n_rows,avg_word_count,median_word_count,pearson_r_word_count_score,pearson_p_value,verbosity_inflation_index,flag_abs_r_gt_0_30
 command-a-03-2025,687,445.5,461.0,-0.6226,0.0,-0.2847,True
 deepseek-v4-flash,687,822.0,869.0,-0.692,0.0,-0.3232,True
+gemma-4-12b-it-q8_0-llamacpp-a6000,687,581.5,609.0,-0.144,0.00015222,-0.03,False
 gemma-4-31b-it,687,484.7,539.0,-0.6394,0.0,-0.248,True
 glm-5.1,687,699.1,756.0,-0.6767,0.0,-0.2868,True
 hermes-3-llama-3.1-405b,687,287.4,280.0,-0.3616,0.0,-0.1765,True

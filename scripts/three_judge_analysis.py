@@ -2,7 +2,9 @@
 """Three-judge inter-rater reliability and re-analysis for MARS-Bench.
 
 Adds DeepSeek V4 Flash (via the OpenCode agentic harness) as a third judge lane
-alongside the production Codex and Claude lanes. Excludes both DeepSeek V4 Pro
+alongside the production Codex and Claude lanes. The production DeepSeek Flash
+lane was served through DeepInfra for the original cohort and through
+OpenRouter for the later Gemma 4 12B cohort. Excludes both DeepSeek V4 Pro
 variants by filtering on the V4 Flash judge_prompt_version pattern. Computes:
 
   - ICC(A,1) and ICC(A,k=3) two-way mixed-effects, absolute-agreement, by McGraw
@@ -72,8 +74,17 @@ JOIN evaluations e_claude
       AND e_claude.judge_prompt_version LIKE '%claude_opus_4_7_medium_comparison'
 JOIN evaluations e_ds
        ON e_ds.response_id = r.id
-      AND e_ds.judge_model = 'deepseek-v4-flash-deepinfra-opencode-cli'
-      AND e_ds.judge_prompt_version LIKE '%opencode_deepseek_v4_flash_comparison'
+      AND (
+          (
+              e_ds.judge_model = 'deepseek-v4-flash-deepinfra-opencode-cli'
+              AND e_ds.judge_prompt_version LIKE '%opencode_deepseek_v4_flash_comparison'
+          )
+          OR
+          (
+              e_ds.judge_model = 'deepseek-v4-flash-openrouter-opencode-cli'
+              AND e_ds.judge_prompt_version LIKE '%opencode_deepseek_v4_flash_openrouter_comparison'
+          )
+      )
 JOIN release_questions rq ON rq.question_id = q.id AND rq.is_included = 1
 JOIN benchmark_releases br ON br.id = rq.release_id
 WHERE br.release_label = ?
@@ -211,6 +222,13 @@ def main() -> None:
             "lane is present in the source DB and the release label is correct."
         )
 
+    if df["response_id"].duplicated().any():
+        dupes = sorted(df.loc[df["response_id"].duplicated(), "response_id"].unique().tolist())
+        raise SystemExit(
+            "Three-judge query matched multiple DeepSeek Flash rows for at least "
+            f"one response_id; first duplicates: {dupes[:10]}"
+        )
+
     df["mean3"] = (df["codex"] + df["claude"] + df["deepseek"]) / 3.0
     df["mean2"] = (df["codex"] + df["claude"]) / 2.0
     df["cc_mean"] = df["mean2"]
@@ -270,7 +288,7 @@ def main() -> None:
             "judge_lanes": [
                 "gpt-5.5-medium-codex-cli (Codex)",
                 "claude-opus-4-7-medium-claude-cli (Claude)",
-                "deepseek-v4-flash-deepinfra-opencode-cli (DeepSeek V4 Flash via OpenCode)",
+                "DeepSeek V4 Flash via OpenCode (DeepInfra for the original cohort; OpenRouter for Gemma 4 12B)",
             ],
             "excluded_lanes": [
                 "deepseek-v4-pro-deepinfra-opencode-cli",

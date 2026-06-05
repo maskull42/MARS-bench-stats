@@ -1,6 +1,7 @@
 model,trap_mean,non_trap_mean,trap_minus_non_trap,n_trap_questions,n_non_trap_questions
 command-a-03-2025,,2.6213,,0,229
 deepseek-v4-flash,,2.7421,,0,229
+gemma-4-12b-it-q8_0-llamacpp-a6000,,2.0751,,0,229
 gemma-4-31b-it,,2.7542,,0,229
 glm-5.1,,2.719,,0,229
 hermes-3-llama-3.1-405b,,3.0119,,0,229

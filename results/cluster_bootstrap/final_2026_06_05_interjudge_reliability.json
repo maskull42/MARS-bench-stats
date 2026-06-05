@@ -1,0 +1,87 @@
+{
+  "bland_altman_high": 0.7418,
+  "bland_altman_high_empirical": 0.9,
+  "bland_altman_high_normal": 0.7418,
+  "bland_altman_low": -0.69,
+  "bland_altman_low_empirical": -0.72,
+  "bland_altman_low_normal": -0.69,
+  "bootstrap_ci": {
+    "bland_altman_high": {
+      "ci_95_high": 0.7694,
+      "ci_95_low": 0.7146
+    },
+    "bland_altman_high_empirical": {
+      "ci_95_high": 0.9,
+      "ci_95_low": 0.8
+    },
+    "bland_altman_high_normal": {
+      "ci_95_high": 0.7694,
+      "ci_95_low": 0.7146
+    },
+    "bland_altman_low": {
+      "ci_95_high": -0.6612,
+      "ci_95_low": -0.72
+    },
+    "bland_altman_low_empirical": {
+      "ci_95_high": -0.6195,
+      "ci_95_low": -0.8
+    },
+    "bland_altman_low_normal": {
+      "ci_95_high": -0.6612,
+      "ci_95_low": -0.72
+    },
+    "exact_same_score_rate": {
+      "ci_95_high": 0.4711,
+      "ci_95_low": 0.4417
+    },
+    "icc_a1": {
+      "ci_95_high": 0.9334,
+      "ci_95_low": 0.9179
+    },
+    "icc_a2": {
+      "ci_95_high": 0.9656,
+      "ci_95_low": 0.9572
+    },
+    "mean_absolute_difference": {
+      "ci_95_high": 0.2338,
+      "ci_95_low": 0.2167
+    },
+    "mean_signed_difference_claude_minus_codex": {
+      "ci_95_high": 0.038,
+      "ci_95_low": 0.0127
+    },
+    "pearson_correlation": {
+      "ci_95_high": 0.9372,
+      "ci_95_low": 0.9231
+    },
+    "spearman_correlation": {
+      "ci_95_high": 0.9261,
+      "ci_95_low": 0.9113
+    },
+    "within_0_25_rate": {
+      "ci_95_high": 0.7056,
+      "ci_95_low": 0.6791
+    },
+    "within_0_50_rate": {
+      "ci_95_high": 0.8638,
+      "ci_95_low": 0.845
+    },
+    "within_1_00_rate": {
+      "ci_95_high": 0.9866,
+      "ci_95_low": 0.9797
+    }
+  },
+  "exact_same_score_rate": 0.4556,
+  "icc_a1": 0.9262,
+  "icc_a2": 0.9617,
+  "mean_absolute_difference": 0.2254,
+  "mean_claude_score": 2.6037,
+  "mean_codex_score": 2.5777,
+  "mean_signed_difference_claude_minus_codex": 0.0259,
+  "paired_rows": 10305,
+  "pearson_correlation": 0.9306,
+  "spearman_correlation": 0.919,
+  "within_0_25_rate": 0.6921,
+  "within_0_50_rate": 0.854,
+  "within_1_00_rate": 0.9834
+}

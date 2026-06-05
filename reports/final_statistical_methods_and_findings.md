@@ -1,14 +1,14 @@
 # MARS-Bench Final Statistical Measurements
 
-Generated: `2026-05-07T08:58:35+00:00`
+Generated: `2026-06-05T10:52:06+00:00`
 
 ## Raw Data Locations
 
 - Publication-safe SQLite DB: `data/mars_bench_stats_public.sqlite`
 - Compressed public DB artifact: `data/mars_bench_stats_public.sqlite.gz`
-- Cluster bootstrap output: `results/cluster_bootstrap/final_2026_05_07_cluster_bootstrap_results.json`
+- Cluster bootstrap output: `results/cluster_bootstrap/final_2026_06_05_cluster_bootstrap_results.json`
 - Source working DB filename: `mars_bench.db`
-- Source working DB SHA-256: `02635670449b41b8aadba3b4ce22a08911ef75b5ca3f0a0582e1ce53d41f2ab8`
+- Source working DB SHA-256: `5140d698d35b1604b76f2fccdad0f2fa4c180e00ed9999253e087fc29383815c`
 
 The public DB is release-scoped and redacts local paths and raw long-form source/context packet body text. It retains questions, reference answers, model responses, scores, rubrics, judge notes, audit flags, material hashes, and structured source/audit provenance needed for statistical replication.
 
@@ -16,17 +16,17 @@ The public DB is release-scoped and redacts local paths and raw long-form source
 
 - Release: `mars_bench_v2_0_d1_d2_d3_d4_d5_d6_d7_rebuild_candidate`
 - Release questions in public DB: `251`
-- Release responses in public DB: `10542`
+- Release responses in public DB: `11295`
 - Paired-analysis questions: `229`
-- Paired Codex-Claude response rows: `9618`
-- Nonpaired release responses outside paired model-selection analysis: `924`
-- Codex rows matching final filter: `9618`
-- Claude rows matching final filter: `9618`
+- Paired Codex-Claude response rows: `10305`
+- Nonpaired release responses outside paired model-selection analysis: `990`
+- Codex rows matching final filter: `10305`
+- Claude rows matching final filter: `10305`
 - Paired fraction of Codex rows: `1.000`
 - Paired fraction of Claude rows: `1.000`
 - Bootstrap reps: `1000`; seed: `20260503`; interval: `percentile`
 
-The 924 nonpaired rows are not stray legacy responses. They are current-release D1 structured morphology adjunct responses: 22 questions x 14 models x 3 runs, judged only by `d1-structured-morphology-scorer-2026-04-25`. Because they have no final paired Codex-Claude evaluations, they are excluded from the paired model-selection statistics and should be analyzed only with a morphology-specific metric.
+The 990 nonpaired responses are current-release D1 structured morphology adjunct responses: 22 questions x 15 models x 3 runs. They were judged only outside the final paired Codex-Claude apparatus (d1-structured-morphology-scorer / d1-structured-morphology-scorer-2026-04-25) and are excluded from paired model-selection statistics.
 
 ## Measurement 1: Inter-Judge Reliability
 
@@ -44,14 +44,14 @@ Formulae:
 
 Findings:
 
-- ICC(A,1): `0.9267` with bootstrap CI `{'ci_95_high': 0.9342, 'ci_95_low': 0.9182}`.
-- ICC(A,2): `0.962` with bootstrap CI `{'ci_95_high': 0.966, 'ci_95_low': 0.9573}`.
-- Mean signed difference, Claude minus Codex: `0.0271`.
-- Mean absolute difference: `0.2261`.
-- Pearson / Spearman: `0.9312` / `0.9218`.
-- Within 0.50 points: `0.8539`; within 1.00 point: `0.9833`.
-- Bland-Altman normal limits: `[-0.6921, 0.7464]`.
-- Bland-Altman empirical limits: `[-0.7, 0.9]`.
+- ICC(A,1): `0.9262` with bootstrap CI `{'ci_95_high': 0.9334, 'ci_95_low': 0.9179}`.
+- ICC(A,2): `0.9617` with bootstrap CI `{'ci_95_high': 0.9656, 'ci_95_low': 0.9572}`.
+- Mean signed difference, Claude minus Codex: `0.0259`.
+- Mean absolute difference: `0.2254`.
+- Pearson / Spearman: `0.9306` / `0.919`.
+- Within 0.50 points: `0.854`; within 1.00 point: `0.9834`.
+- Bland-Altman normal limits: `[-0.69, 0.7418]`.
+- Bland-Altman empirical limits: `[-0.72, 0.9]`.
 
 Interpretation: ICC supports aggregate use of the averaged Codex-Claude score. The Bland-Altman tail width means row-level disagreements still deserve qualitative audit, especially in contested source-critical cases.
 
@@ -90,20 +90,20 @@ Formulae:
 - Verbosity inflation index: `(mean(score | words > median_words) - mean(score | words <= median_words)) / mean(score | words <= median_words)`.
 - Length-adjusted score: fit `score ~ log(1 + words) + domain FE + level FE + regime FE`; then adjust each score to the global mean log length: `score_adj_i = score_i - beta_len*(log_words_i - mean(log_words))`.
 
-Overall log-length coefficient: `-0.450366`; p-value `1.29e-297`.
+Overall log-length coefficient: `-0.447318`; p-value `6.67e-277`.
 
 Top length-adjusted rankings:
 
 | Adjusted Rank | Model | Raw Mean | Raw Rank | Length-Adjusted Mean | Rank Shift |
 |---:|---|---:|---:|---:|---:|
-| 1 | `qwen3.5-397b-a17b-moe` | `2.7725` | `3` | `2.9063` | `2` |
-| 2 | `deepseek-v4-flash` | `2.7421` | `5` | `2.8655` | `3` |
-| 3 | `glm-5.1` | `2.719` | `7` | `2.785` | `4` |
-| 4 | `qwen3.5-122b-a10b` | `2.614` | `9` | `2.772` | `5` |
-| 5 | `hermes-3-llama-3.1-405b` | `3.0119` | `1` | `2.6866` | `-4` |
-| 6 | `qwen3.6-27b-fp8` | `2.5323` | `12` | `2.6744` | `6` |
-| 7 | `qwen3.6-35b-a3b-q8_0` | `2.5386` | `11` | `2.6587` | `4` |
-| 8 | `gemma-4-31b-it` | `2.7542` | `4` | `2.6502` | `-4` |
+| 1 | `qwen3.5-397b-a17b-moe` | `2.7725` | `3` | `2.9059` | `2` |
+| 2 | `deepseek-v4-flash` | `2.7421` | `5` | `2.8653` | `3` |
+| 3 | `glm-5.1` | `2.719` | `7` | `2.7851` | `4` |
+| 4 | `qwen3.5-122b-a10b` | `2.614` | `9` | `2.7715` | `5` |
+| 5 | `hermes-3-llama-3.1-405b` | `3.0119` | `1` | `2.6894` | `-4` |
+| 6 | `qwen3.6-27b-fp8` | `2.5323` | `12` | `2.674` | `6` |
+| 7 | `qwen3.6-35b-a3b-q8_0` | `2.5386` | `11` | `2.6585` | `4` |
+| 8 | `gemma-4-31b-it` | `2.7542` | `4` | `2.6515` | `-4` |
 
 ## Measurement 4: Run-to-Run Variance
 
@@ -146,6 +146,7 @@ Response-integrity profile:
 | `command-a-03-2025` | `2` | `753` | `0.002656` | `None` | `{"D3": 2}` |
 | `qwen3.5-9b` | `2` | `753` | `0.002656` | `None` | `{"D1": 2}` |
 | `qwen3.6-27b-fp8` | `2` | `753` | `0.002656` | `None` | `{"D4": 1, "D7": 1}` |
+| `gemma-4-12b-it-q8_0-llamacpp-a6000` | `1` | `753` | `0.001328` | `None` | `{"D2": 1}` |
 | `qwen3.5-122b-a10b` | `1` | `753` | `0.001328` | `None` | `{"D7": 1}` |
 | `deepseek-v4-flash` | `0` | `753` | `0.0` | `0.003984` | `{}` |
 | `gemma-4-31b-it` | `0` | `753` | `0.0` | `0.003984` | `{}` |
@@ -180,9 +181,9 @@ Formulae:
 
 ## Files Produced
 
-- `results/cluster_bootstrap/final_2026_05_07_cluster_bootstrap_results.json`
-- `results/cluster_bootstrap/final_2026_05_07_cluster_bootstrap_leaderboard.csv`
-- `results/cluster_bootstrap/final_2026_05_07_interjudge_reliability.json`
+- `results/cluster_bootstrap/final_2026_06_05_cluster_bootstrap_results.json`
+- `results/cluster_bootstrap/final_2026_06_05_cluster_bootstrap_leaderboard.csv`
+- `results/cluster_bootstrap/final_2026_06_05_interjudge_reliability.json`
 - `results/diagnostics/final_bias_and_selection_diagnostics.json`
 - `results/diagnostics/*.csv` appendix tables
 

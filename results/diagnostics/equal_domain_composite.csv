@@ -12,4 +12,5 @@ qwen3.6-35b-a3b-q8_0,2.3839,10
 mistral-medium-3.5,2.3614,11
 qwen3.6-27b-fp8,2.3536,12
 llada2.1-flash,2.1377,13
-qwen3.5-9b,2.0346,14
+gemma-4-12b-it-q8_0-llamacpp-a6000,2.0644,14
+qwen3.5-9b,2.0346,15

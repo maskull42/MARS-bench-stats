@@ -20,7 +20,7 @@ from scipy import stats
 
 
 DEFAULT_DB = Path("data/mars_bench_stats_public.sqlite")
-DEFAULT_CLUSTER_JSON = Path("results/cluster_bootstrap/final_2026_05_07_cluster_bootstrap_results.json")
+DEFAULT_CLUSTER_JSON = Path("results/cluster_bootstrap/final_2026_06_05_cluster_bootstrap_results.json")
 DEFAULT_RESULTS_DIR = Path("results/diagnostics")
 DEFAULT_REPORT = Path("reports/final_statistical_methods_and_findings.md")
 
@@ -551,17 +551,32 @@ def response_set_summary(conn: sqlite3.Connection) -> dict[str, Any]:
             """
         )
     ]
+    morphology_text = None
+    if nonpaired_group:
+        group = dict(nonpaired_group)
+        eval_lanes = ", ".join(
+            sorted(
+                {
+                    f"{row['judge_model']} / {row['judge_prompt_version']}"
+                    for row in nonpaired_eval_coverage
+                }
+            )
+        )
+        morphology_text = (
+            f"The {totals['nonpaired_responses']} nonpaired responses are "
+            "current-release D1 structured morphology adjunct responses: "
+            f"{group.get('questions')} questions x {totals['models']} models x "
+            "3 runs. They were judged only outside the final paired Codex-Claude "
+            f"apparatus ({eval_lanes}) and are excluded from paired model-selection "
+            "statistics."
+        )
+
     return {
         **totals,
         "by_domain": by_domain,
         "nonpaired_question_group": dict(nonpaired_group) if nonpaired_group else None,
         "nonpaired_evaluation_coverage": nonpaired_eval_coverage,
-        "interpretation": (
-            "The 924 nonpaired responses are current-release D1 structured morphology "
-            "adjunct responses: 22 questions x 14 models x 3 runs. They were judged "
-            "by d1-structured-morphology-scorer-2026-04-25 and have no final paired "
-            "Codex-Claude evaluations, so they are excluded from paired model-selection statistics."
-        ),
+        "interpretation": morphology_text,
     }
 
 
@@ -572,7 +587,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         return
     fieldnames = list(rows[0].keys())
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow(row)
@@ -643,7 +658,7 @@ def write_report(
         f"- Paired fraction of Claude rows: `{coverage['paired_fraction_of_claude']:.3f}`",
         f"- Bootstrap reps: `{metadata['bootstrap_reps']}`; seed: `{metadata['seed']}`; interval: `{metadata['bootstrap_interval_type']}`",
         "",
-        "The 924 nonpaired rows are not stray legacy responses. They are current-release D1 structured morphology adjunct responses: 22 questions x 14 models x 3 runs, judged only by `d1-structured-morphology-scorer-2026-04-25`. Because they have no final paired Codex-Claude evaluations, they are excluded from the paired model-selection statistics and should be analyzed only with a morphology-specific metric.",
+        response_sets.get("interpretation") or "All release responses are included in the paired model-selection analysis.",
         "",
         "## Measurement 1: Inter-Judge Reliability",
         "",
@@ -799,9 +814,9 @@ def write_report(
             "",
             "## Files Produced",
             "",
-            "- `results/cluster_bootstrap/final_2026_05_07_cluster_bootstrap_results.json`",
-            "- `results/cluster_bootstrap/final_2026_05_07_cluster_bootstrap_leaderboard.csv`",
-            "- `results/cluster_bootstrap/final_2026_05_07_interjudge_reliability.json`",
+            f"- `{cluster_path}`",
+            f"- `{cluster_path.with_name(cluster_path.name.replace('_cluster_bootstrap_results.json', '_cluster_bootstrap_leaderboard.csv'))}`",
+            f"- `{cluster_path.with_name(cluster_path.name.replace('_cluster_bootstrap_results.json', '_interjudge_reliability.json'))}`",
             "- `results/diagnostics/final_bias_and_selection_diagnostics.json`",
             "- `results/diagnostics/*.csv` appendix tables",
             "",

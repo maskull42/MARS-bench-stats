@@ -13,3 +13,4 @@ qwen3.6-35b-a3b-q8_0,2.5386,11
 qwen3.6-27b-fp8,2.5323,12
 llada2.1-flash,2.2025,13
 qwen3.5-9b,2.1386,14
+gemma-4-12b-it-q8_0-llamacpp-a6000,2.0751,15
