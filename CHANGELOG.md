@@ -13,11 +13,14 @@ The format follows the conventions of [Keep a Changelog](https://keepachangelog.
 - `results/cluster_bootstrap/final_2026_06_05_*`: recalculated two-judge cluster bootstrap artifacts for 15 models and 10,305 paired Codex-Claude rows.
 - `results/three_judge/final_2026_06_05_*`: recalculated three-judge artifacts with DeepSeek Flash served through DeepInfra for the original cohort and OpenRouter for Gemma 4 12B.
 - `reports/three_judge_analysis_2026_06_05.md`: June 5 three-judge methods-and-findings report.
+- `results/diagnostics/model_parameter_counts_2026_06_05.json`: audited `models.size_b` provenance for the working and public database model rows.
+- `scripts/parameter_scaling_analysis.py`, `reports/parameter_scaling_2026_06_05.md`, and `results/diagnostics/parameter_scaling_2026_06_05_*`: parameter-count scaling diagnostics for the three-judge model scores.
 
 ### Changed
 
 - `data/mars_bench_stats_public.sqlite.gz`: re-exported from the current working database. The public export now contains 251 release questions, 11,295 release responses, 54,264 evaluation rows, 10,305 paired Codex-Claude rows, and 990 D1 structured morphology adjunct responses.
 - `reports/final_statistical_methods_and_findings.md` and `results/diagnostics/*`: recalculated against the expanded 15-model paired-analysis cohort.
+- `models.size_b`: filled verified parameter counts for all public model rows; MoE active-parameter counts and source URLs are recorded in model notes/provenance. Claude Opus remains intentionally null in the private working DB because Anthropic does not publish an official parameter count.
 - `scripts/three_judge_analysis.py`: accepts both DeepInfra and OpenRouter DeepSeek V4 Flash production judge lanes while continuing to exclude DeepSeek V4 Pro rows.
 - `scripts/run_bias_and_selection_diagnostics.py`: computes nonpaired-response explanatory text from the database instead of using stale fixed counts.
 - `scripts/cluster_bootstrap_mars_results.py`: removes stale fixed morphology-row counts from the composite caveat.

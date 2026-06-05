@@ -26,6 +26,8 @@ replication is retained.
   cluster-aware bootstrap analysis.
 - `scripts/run_bias_and_selection_diagnostics.py`: final model-selection,
   bias, stability, distribution, and appendix diagnostics.
+- `scripts/parameter_scaling_analysis.py`: parameter-count correlation and
+  residual diagnostics using the three-judge model scores.
 - `scripts/three_judge_analysis.py` (added in v2026.05.10, updated in
   v2026.06.05): three-judge re-analysis adding DeepSeek V4 Flash via OpenCode
   CLI to the original
@@ -35,6 +37,8 @@ replication is retained.
   DeepSeek-as-judge offset diagnostic for self-preference probing.
 - `results/cluster_bootstrap/`: final cluster bootstrap JSON/CSV outputs.
 - `results/diagnostics/`: final diagnostic JSON/CSV outputs.
+- `results/diagnostics/model_parameter_counts_2026_06_05.json`: audited
+  provenance for `models.size_b` parameter-count metadata.
 - `results/three_judge/` (added in v2026.05.10): three-judge analysis outputs
   for the v2026.05.10 and v2026.06.05 releases.
 - `reports/final_statistical_methods_and_findings.md`: detailed methods,
@@ -44,6 +48,8 @@ replication is retained.
 - `reports/three_judge_analysis_2026_06_05.md` (added in v2026.06.05):
   methods and findings for the three-judge re-analysis after the Gemma 4 12B
   addition.
+- `reports/parameter_scaling_2026_06_05.md`: parameter-count scaling findings
+  after filling audited `models.size_b` metadata.
 - `CHANGELOG.md`: release history.
 - `legacy_reference_scripts/`: earlier statistical scripts preserved for
   audit history and method continuity.

@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "generated_at": "2026-06-05",
+    "size_b_definition": "Declared or official total parameter count in billions. For MoE models, size_b records total parameters; active parameters are recorded separately when disclosed. Closed models without official parameter disclosures remain null.",
+    "source_db_sha256_after_checkpoint": "9d108714512e3f7dfcb4fa19198607b6fb180c31e70bbb5692b7054e58f76e60",
+    "source_db_backup_filename": "mars_bench.pre_param_counts_20260605_131330.db",
+    "public_db_sha256_after_export": "f093f50976d3bfa943edfb549d472f38b2179f7365d8c268c67e161eaaba620c"
+  },
+  "models": [
+    {
+      "mars_model": "llama-3.3-70b-instruct",
+      "size_b": 70.0,
+      "active_b": null,
+      "basis": "Official Meta Llama 3.3 70B model slug/card; HF API safetensors.total is approximately 70.554B.",
+      "source_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+    },
+    {
+      "mars_model": "claude-opus-4-6-ceiling",
+      "size_b": null,
+      "active_b": null,
+      "basis": "No official public parameter count located; size_b intentionally left null rather than using estimates.",
+      "source_url": "https://www.anthropic.com/news/claude-opus-4-6"
+    },
+    {
+      "mars_model": "gemma-3-27b-it",
+      "size_b": 27.0,
+      "active_b": null,
+      "basis": "Official Google Gemma 3 27B model slug/card; HF API safetensors.total is approximately 27.432B.",
+      "source_url": "https://huggingface.co/google/gemma-3-27b-it"
+    },
+    {
+      "mars_model": "command-a-03-2025",
+      "size_b": 111.0,
+      "active_b": null,
+      "basis": "Cohere Command A documentation and HF weights identify a 111B parameter model.",
+      "source_url": "https://docs.cohere.com/docs/command-a"
+    },
+    {
+      "mars_model": "hermes-3-llama-3.1-405b",
+      "size_b": 405.0,
+      "active_b": null,
+      "basis": "NousResearch Hermes 3 Llama 3.1 405B model slug/card; HF API safetensors.total is approximately 405.853B.",
+      "source_url": "https://huggingface.co/NousResearch/Hermes-3-Llama-3.1-405B"
+    },
+    {
+      "mars_model": "qwen2.5-72b-instruct",
+      "size_b": 72.0,
+      "active_b": null,
+      "basis": "Official Qwen2.5 72B model slug/card; HF API safetensors.total is approximately 72.706B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct"
+    },
+    {
+      "mars_model": "mistral-small-3.2-24b",
+      "size_b": 24.0,
+      "active_b": null,
+      "basis": "Official Mistral Small 3.2 24B model slug/card; HF API safetensors.total is approximately 24.011B.",
+      "source_url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+    },
+    {
+      "mars_model": "qwen3-235b-a22b-moe",
+      "size_b": 235.0,
+      "active_b": 22.0,
+      "basis": "Official Qwen3 235B-A22B MoE model slug/card; HF API safetensors.total is approximately 235.094B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3-235B-A22B"
+    },
+    {
+      "mars_model": "deepseek-v3-moe",
+      "size_b": 671.0,
+      "active_b": 37.0,
+      "basis": "Official DeepSeek-V3 card reports 671B total parameters and 37B activated parameters; HF weights include an additional MTP module.",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+    },
+    {
+      "mars_model": "llama4-maverick-17b-128e-moe",
+      "size_b": 400.0,
+      "active_b": 17.0,
+      "basis": "Official Llama 4 Maverick 17B-128E card reports 17B active parameters and approximately 400B total parameters.",
+      "source_url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E"
+    },
+    {
+      "mars_model": "qwen3.5-397b-a17b-moe",
+      "size_b": 397.0,
+      "active_b": 17.0,
+      "basis": "Official Qwen3.5 397B-A17B MoE model slug/card; HF API safetensors.total is approximately 403.398B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+    },
+    {
+      "mars_model": "qwen3.5-27b-dense",
+      "size_b": 27.0,
+      "active_b": null,
+      "basis": "Official Qwen3.5 27B dense model slug/card; HF API safetensors.total is approximately 27.781B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-27B"
+    },
+    {
+      "mars_model": "gemma-4-31b-it",
+      "size_b": 31.0,
+      "active_b": null,
+      "basis": "Official Google Gemma 4 31B model slug/card; HF API safetensors.total is approximately 32.682B including non-BF16 tensors.",
+      "source_url": "https://huggingface.co/google/gemma-4-31B-it"
+    },
+    {
+      "mars_model": "qwen3.5-27b-dense-bf16",
+      "size_b": 27.0,
+      "active_b": null,
+      "basis": "Same parameter count as Qwen3.5 27B dense; quantization/serving variant only.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-27B"
+    },
+    {
+      "mars_model": "qwen3.5-9b",
+      "size_b": 9.0,
+      "active_b": null,
+      "basis": "Official Qwen3.5 9B model slug/card; HF API safetensors.total is approximately 9.653B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-9B"
+    },
+    {
+      "mars_model": "glm-5.1",
+      "size_b": 754.0,
+      "active_b": null,
+      "basis": "zai-org/GLM-5.1 HF API safetensors.total is approximately 753.864B.",
+      "source_url": "https://huggingface.co/zai-org/GLM-5.1"
+    },
+    {
+      "mars_model": "qwen3.5-122b-a10b",
+      "size_b": 122.0,
+      "active_b": 10.0,
+      "basis": "Official Qwen3.5 122B-A10B MoE model slug/card; HF API safetensors.total is approximately 125.086B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
+    },
+    {
+      "mars_model": "gemma-4-26b-a4b-it",
+      "size_b": 26.0,
+      "active_b": 4.0,
+      "basis": "Official Google Gemma 4 26B-A4B model slug/card.",
+      "source_url": "https://huggingface.co/google/gemma-4-26B-A4B-it"
+    },
+    {
+      "mars_model": "qwen3.6-35b-a3b-q8_0",
+      "size_b": 35.0,
+      "active_b": 3.0,
+      "basis": "Official Qwen3.6 35B-A3B MoE model slug/card; HF API safetensors.total is approximately 35.952B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+    },
+    {
+      "mars_model": "llada2.1-mini",
+      "size_b": 16.0,
+      "active_b": null,
+      "basis": "Official inclusionAI LLaDA2.1-mini model slug/card; HF API safetensors.total is approximately 16.256B.",
+      "source_url": "https://huggingface.co/inclusionAI/LLaDA2.1-mini"
+    },
+    {
+      "mars_model": "llada2.1-flash",
+      "size_b": 100.0,
+      "active_b": null,
+      "basis": "Official inclusionAI LLaDA2.1-flash card reports 100B total non-embedding parameters; HF API safetensors.total is approximately 102.890B.",
+      "source_url": "https://huggingface.co/inclusionAI/LLaDA2.1-flash"
+    },
+    {
+      "mars_model": "deepseek-v4-flash",
+      "size_b": 284.0,
+      "active_b": 13.0,
+      "basis": "Official DeepSeek-V4-Flash model card reports 284B total parameters and 13B activated parameters.",
+      "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
+    },
+    {
+      "mars_model": "qwen3.6-27b-fp8",
+      "size_b": 27.0,
+      "active_b": null,
+      "basis": "Official Qwen3.6 27B FP8 model slug/card; HF API safetensors.total is approximately 27.783B.",
+      "source_url": "https://huggingface.co/Qwen/Qwen3.6-27B-FP8"
+    },
+    {
+      "mars_model": "mistral-medium-3.5",
+      "size_b": 128.0,
+      "active_b": null,
+      "basis": "Stored from existing local benchmark metadata for Mistral Medium 3.5; public exact-weight source not available for the proprietary API model.",
+      "source_url": "https://docs.mistral.ai/getting-started/models/models_overview/"
+    },
+    {
+      "mars_model": "gemma-4-12b-it-q8_0-llamacpp-a6000",
+      "size_b": 12.0,
+      "active_b": null,
+      "basis": "Official Google Gemma 4 12B model slug/card; HF API safetensors.total is approximately 11.960B.",
+      "source_url": "https://huggingface.co/google/gemma-4-12B-it"
+    }
+  ]
+}

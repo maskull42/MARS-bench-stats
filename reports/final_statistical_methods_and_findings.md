@@ -1,6 +1,6 @@
 # MARS-Bench Final Statistical Measurements
 
-Generated: `2026-06-05T10:52:06+00:00`
+Generated: `2026-06-05T11:17:43+00:00`
 
 ## Raw Data Locations
 
@@ -8,7 +8,7 @@ Generated: `2026-06-05T10:52:06+00:00`
 - Compressed public DB artifact: `data/mars_bench_stats_public.sqlite.gz`
 - Cluster bootstrap output: `results/cluster_bootstrap/final_2026_06_05_cluster_bootstrap_results.json`
 - Source working DB filename: `mars_bench.db`
-- Source working DB SHA-256: `5140d698d35b1604b76f2fccdad0f2fa4c180e00ed9999253e087fc29383815c`
+- Source working DB SHA-256: `9d108714512e3f7dfcb4fa19198607b6fb180c31e70bbb5692b7054e58f76e60`
 
 The public DB is release-scoped and redacts local paths and raw long-form source/context packet body text. It retains questions, reference answers, model responses, scores, rubrics, judge notes, audit flags, material hashes, and structured source/audit provenance needed for statistical replication.
 

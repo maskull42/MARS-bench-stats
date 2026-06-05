@@ -1,0 +1,642 @@
+{
+  "all_domain_log_total_regression": {
+    "intercept": 2.041466218077371,
+    "negative_residuals": [
+      {
+        "label": "LLaDA100",
+        "model": "llada2.1-flash",
+        "observed": 2.1917665945165945,
+        "predicted": 2.4661858071639426,
+        "residual": -0.27441921264734814,
+        "size_b": 100.0
+      },
+      {
+        "label": "Qwen9",
+        "model": "qwen3.5-9b",
+        "observed": 2.0814486531986534,
+        "predicted": 2.2441089613263756,
+        "residual": -0.16266030812772225,
+        "size_b": 9.0
+      },
+      {
+        "label": "GLM5.1",
+        "model": "glm-5.1",
+        "observed": 2.5193186026936027,
+        "predicted": 2.652504205911014,
+        "residual": -0.13318560321741124,
+        "size_b": 754.0
+      },
+      {
+        "label": "Mistral128",
+        "model": "mistral-medium-3.5",
+        "observed": 2.3823287037037035,
+        "predicted": 2.488952894291356,
+        "residual": -0.10662419058765238,
+        "size_b": 128.0
+      },
+      {
+        "label": "Qwen122",
+        "model": "qwen3.5-122b-a10b",
+        "observed": 2.418997294372294,
+        "predicted": 2.484525163062825,
+        "residual": -0.06552786869053095,
+        "size_b": 122.0
+      }
+    ],
+    "p": 0.012611141114726472,
+    "positive_residuals": [
+      {
+        "label": "Hermes405",
+        "model": "hermes-3-llama-3.1-405b",
+        "observed": 2.9166156204906204,
+        "predicted": 2.5951848310880967,
+        "residual": 0.3214307894025237,
+        "size_b": 405.0
+      },
+      {
+        "label": "Gemma31",
+        "model": "gemma-4-31b-it",
+        "observed": 2.5988382034632034,
+        "predicted": 2.3581714809697436,
+        "residual": 0.24066672249345977,
+        "size_b": 31.0
+      },
+      {
+        "label": "Llama70",
+        "model": "llama-3.3-70b-instruct",
+        "observed": 2.6075419071669077,
+        "predicted": 2.433290858767018,
+        "residual": 0.1742510483998898,
+        "size_b": 70.0
+      },
+      {
+        "label": "Llama4",
+        "model": "llama4-maverick-17b-128e-moe",
+        "observed": 2.6367771765271764,
+        "predicted": 2.594039143225081,
+        "residual": 0.042738033302095246,
+        "size_b": 400.0
+      },
+      {
+        "label": "Qwen27",
+        "model": "qwen3.6-27b-fp8",
+        "observed": 2.384080868205868,
+        "predicted": 2.345430332950878,
+        "residual": 0.03865053525499018,
+        "size_b": 27.0
+      }
+    ],
+    "r": 0.6256305761177208,
+    "r_squared": 0.39141361777339123,
+    "slope": 0.21235979454328577,
+    "stderr": 0.07344187734026177,
+    "target": "all_domain_mean_3judge",
+    "x": "log10_size_b"
+  },
+  "correlations": {
+    "all_domain_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.12632743626119808,
+        "pearson_r": 0.4126837333621825,
+        "spearman_p": 0.20796674471099505,
+        "spearman_rho": 0.34495098671459
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.1914591651745209,
+        "pearson_r": 0.35700450323174865,
+        "spearman_p": 0.20796674471099505,
+        "spearman_rho": 0.34495098671459
+      },
+      "description": "Unweighted mean of D1-D7 three-judge domain means",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.012611141114726493,
+        "pearson_r": 0.6256305761177207,
+        "spearman_p": 0.014833955405976961,
+        "spearman_rho": 0.6142857142857142
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.05647398287155423,
+        "pearson_r": 0.5021285011017863,
+        "spearman_p": 0.014833955405976961,
+        "spearman_rho": 0.6142857142857142
+      }
+    },
+    "d1_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.5839413885650367,
+        "pearson_r": 0.15390394288208017,
+        "spearman_p": 0.7418216301177504,
+        "spearman_rho": 0.0929401622236201
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.42547446362414787,
+        "pearson_r": 0.2224761898376425,
+        "spearman_p": 0.7418216301177504,
+        "spearman_rho": 0.0929401622236201
+      },
+      "description": "D1 ancient_languages",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.010931576842624509,
+        "pearson_r": 0.6352825376277339,
+        "spearman_p": 0.0427972893094504,
+        "spearman_rho": 0.5285714285714286
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.0764434426661622,
+        "pearson_r": 0.47090284507675745,
+        "spearman_p": 0.0427972893094504,
+        "spearman_rho": 0.5285714285714286
+      }
+    },
+    "d2_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.13397636762631918,
+        "pearson_r": 0.4052668330127934,
+        "spearman_p": 0.15522986585371962,
+        "spearman_rho": 0.38605913539042197
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.10818098227729975,
+        "pearson_r": 0.4316047362344756,
+        "spearman_p": 0.15522986585371962,
+        "spearman_rho": 0.38605913539042197
+      },
+      "description": "D2 biblical_knowledge",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.0016738576626668443,
+        "pearson_r": 0.738243034574072,
+        "spearman_p": 0.00019513654706319864,
+        "spearman_rho": 0.8178571428571428
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.015736008733836956,
+        "pearson_r": 0.6100555737325073,
+        "spearman_p": 0.00019513654706319864,
+        "spearman_rho": 0.8178571428571428
+      }
+    },
+    "d3_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.14570405942479034,
+        "pearson_r": 0.39443384693325345,
+        "spearman_p": 0.19323721827732732,
+        "spearman_rho": 0.3556748515865462
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.2981567761420886,
+        "pearson_r": 0.28786154214538123,
+        "spearman_p": 0.19323721827732732,
+        "spearman_rho": 0.3556748515865462
+      },
+      "description": "D3 patristic_knowledge",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.08778426497590595,
+        "pearson_r": 0.4557262313351902,
+        "spearman_p": 0.1395951293721447,
+        "spearman_rho": 0.39999999999999997
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.26594231522377926,
+        "pearson_r": 0.306856018373221,
+        "spearman_p": 0.1395951293721447,
+        "spearman_rho": 0.39999999999999997
+      }
+    },
+    "d4_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.10775678598468784,
+        "pearson_r": 0.4320724572156137,
+        "spearman_p": 0.07832728668625465,
+        "spearman_rho": 0.4682754327420859
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.26063501432692693,
+        "pearson_r": 0.31011566229074805,
+        "spearman_p": 0.07832728668625465,
+        "spearman_rho": 0.4682754327420859
+      },
+      "description": "D4 early_christian_history",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.40472205895873603,
+        "pearson_r": 0.2323239220976489,
+        "spearman_p": 0.42010468690763486,
+        "spearman_rho": 0.22499999999999998
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.38619518126186764,
+        "pearson_r": 0.24134220028980963,
+        "spearman_p": 0.42010468690763486,
+        "spearman_rho": 0.22499999999999998
+      }
+    },
+    "d5_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.811768065224842,
+        "pearson_r": 0.06725421001019233,
+        "spearman_p": 0.9168338110239012,
+        "spearman_rho": 0.029516994633273706
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.6165625454195619,
+        "pearson_r": 0.14085981756952787,
+        "spearman_p": 0.9168338110239012,
+        "spearman_rho": 0.029516994633273706
+      },
+      "description": "D5 theological_knowledge",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.8385523494106615,
+        "pearson_r": 0.05755691505160711,
+        "spearman_p": 0.8943507316442487,
+        "spearman_rho": 0.03753352705184659
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.6907706157386101,
+        "pearson_r": 0.11211559448167831,
+        "spearman_p": 0.8943507316442487,
+        "spearman_rho": 0.03753352705184659
+      }
+    },
+    "d6_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.3065709339698757,
+        "pearson_r": 0.2831026242631778,
+        "spearman_p": 0.5155000171644716,
+        "spearman_rho": 0.18230570282325484
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.4602552429245554,
+        "pearson_r": 0.20650631425653512,
+        "spearman_p": 0.5155000171644716,
+        "spearman_rho": 0.18230570282325484
+      },
+      "description": "D6 heresiological_knowledge",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.4891020123567307,
+        "pearson_r": 0.19370763910126154,
+        "spearman_p": 0.3212111733193767,
+        "spearman_rho": 0.27499999999999997
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.5132149217596452,
+        "pearson_r": 0.1832818437928702,
+        "spearman_p": 0.3212111733193767,
+        "spearman_rho": 0.27499999999999997
+      }
+    },
+    "d7_mean_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.1741108436507892,
+        "pearson_r": 0.3704199227549716,
+        "spearman_p": 0.07205263036541529,
+        "spearman_rho": 0.47721198680204935
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.4578986170265898,
+        "pearson_r": 0.2075689123565687,
+        "spearman_p": 0.07205263036541529,
+        "spearman_rho": 0.47721198680204935
+      },
+      "description": "D7 marcion_studies",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.11957226005142335,
+        "pearson_r": 0.4194938344121551,
+        "spearman_p": 0.10449335704406652,
+        "spearman_rho": 0.4357142857142856
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.21401497833492075,
+        "pearson_r": 0.34068816574786076,
+        "spearman_p": 0.10449335704406652,
+        "spearman_rho": 0.4357142857142856
+      }
+    },
+    "role_weighted_composite_3judge": {
+      "active_or_dense_log10": {
+        "n": 15,
+        "pearson_p": 0.12774848708173075,
+        "pearson_r": 0.4112830639801513,
+        "spearman_p": 0.1658432175058251,
+        "spearman_rho": 0.37712258133045856
+      },
+      "active_or_dense_raw": {
+        "n": 15,
+        "pearson_p": 0.22821917602831462,
+        "pearson_r": 0.33096797901905606,
+        "spearman_p": 0.1658432175058251,
+        "spearman_rho": 0.37712258133045856
+      },
+      "description": "Role-weighted three-judge composite",
+      "total_size_log10": {
+        "n": 15,
+        "pearson_p": 0.024537534901508777,
+        "pearson_r": 0.5762928326541037,
+        "spearman_p": 0.017200138068795334,
+        "spearman_rho": 0.6035714285714285
+      },
+      "total_size_raw": {
+        "n": 15,
+        "pearson_p": 0.08269690467693315,
+        "pearson_r": 0.46235032019131084,
+        "spearman_p": 0.017200138068795334,
+        "spearman_rho": 0.6035714285714285
+      }
+    }
+  },
+  "metadata": {
+    "db_path": "data/mars_bench_stats_public.sqlite",
+    "generated_at_utc": "2026-06-05T11:27:03.700871+00:00",
+    "n_models": 15,
+    "parameter_provenance_json": "results/diagnostics/model_parameter_counts_2026_06_05.json",
+    "size_b_definition": "Total parameters in billions from models.size_b; active_or_dense_b substitutes official active parameters for sparse MoE models when available.",
+    "three_judge_json": "results/three_judge/final_2026_06_05_three_judge_results.json"
+  },
+  "per_model": [
+    {
+      "active_or_dense_b": 405.0,
+      "all_domain_mean_3judge": 2.9166156204906204,
+      "d1_mean_3judge": 3.7471380471380473,
+      "d2_mean_3judge": 3.094791666666666,
+      "d3_mean_3judge": 2.486574074074074,
+      "d4_mean_3judge": 2.9476851851851853,
+      "d5_mean_3judge": 2.896888888888889,
+      "d6_mean_3judge": 2.3752314814814817,
+      "d7_mean_3judge": 2.868,
+      "label": "Hermes405",
+      "log10_active_or_dense_b": 2.6074550232146687,
+      "log10_size_b": 2.6074550232146687,
+      "model": "hermes-3-llama-3.1-405b",
+      "role_weighted_composite_3judge": 2.848307062289562,
+      "size_b": 405.0
+    },
+    {
+      "active_or_dense_b": 17.0,
+      "all_domain_mean_3judge": 2.6367771765271764,
+      "d1_mean_3judge": 3.6375420875420876,
+      "d2_mean_3judge": 2.7159722222222222,
+      "d3_mean_3judge": 1.9837962962962965,
+      "d4_mean_3judge": 2.5148148148148146,
+      "d5_mean_3judge": 2.658888888888889,
+      "d6_mean_3judge": 2.1106481481481483,
+      "d7_mean_3judge": 2.835777777777778,
+      "label": "Llama4",
+      "log10_active_or_dense_b": 1.2304489213782739,
+      "log10_size_b": 2.6020599913279625,
+      "model": "llama4-maverick-17b-128e-moe",
+      "role_weighted_composite_3judge": 2.5780795707070707,
+      "size_b": 400.0
+    },
+    {
+      "active_or_dense_b": 70.0,
+      "all_domain_mean_3judge": 2.6075419071669077,
+      "d1_mean_3judge": 3.5575757575757576,
+      "d2_mean_3judge": 2.519791666666667,
+      "d3_mean_3judge": 2.212037037037037,
+      "d4_mean_3judge": 2.5300925925925926,
+      "d5_mean_3judge": 2.6582222222222223,
+      "d6_mean_3judge": 2.2018518518518517,
+      "d7_mean_3judge": 2.5732222222222223,
+      "label": "Llama70",
+      "log10_active_or_dense_b": 1.845098040014257,
+      "log10_size_b": 1.845098040014257,
+      "model": "llama-3.3-70b-instruct",
+      "role_weighted_composite_3judge": 2.5347121254208753,
+      "size_b": 70.0
+    },
+    {
+      "active_or_dense_b": 31.0,
+      "all_domain_mean_3judge": 2.5988382034632034,
+      "d1_mean_3judge": 3.9307239057239056,
+      "d2_mean_3judge": 2.7003472222222222,
+      "d3_mean_3judge": 2.130324074074074,
+      "d4_mean_3judge": 2.3219907407407407,
+      "d5_mean_3judge": 2.824222222222222,
+      "d6_mean_3judge": 2.0481481481481483,
+      "d7_mean_3judge": 2.236111111111111,
+      "label": "Gemma31",
+      "log10_active_or_dense_b": 1.4913616938342726,
+      "log10_size_b": 1.4913616938342726,
+      "model": "gemma-4-31b-it",
+      "role_weighted_composite_3judge": 2.493180042087542,
+      "size_b": 31.0
+    },
+    {
+      "active_or_dense_b": 17.0,
+      "all_domain_mean_3judge": 2.529840909090909,
+      "d1_mean_3judge": 4.315488215488216,
+      "d2_mean_3judge": 2.75625,
+      "d3_mean_3judge": 1.978009259259259,
+      "d4_mean_3judge": 2.076388888888889,
+      "d5_mean_3judge": 2.6306666666666665,
+      "d6_mean_3judge": 1.9993055555555554,
+      "d7_mean_3judge": 1.952777777777778,
+      "label": "Qwen397",
+      "log10_active_or_dense_b": 1.2304489213782739,
+      "log10_size_b": 2.598790506763115,
+      "model": "qwen3.5-397b-a17b-moe",
+      "role_weighted_composite_3judge": 2.3931041498316503,
+      "size_b": 397.0
+    },
+    {
+      "active_or_dense_b": 754.0,
+      "all_domain_mean_3judge": 2.5193186026936027,
+      "d1_mean_3judge": 4.149410774410774,
+      "d2_mean_3judge": 2.7572916666666667,
+      "d3_mean_3judge": 1.9000000000000001,
+      "d4_mean_3judge": 2.1995370370370373,
+      "d5_mean_3judge": 2.6544444444444446,
+      "d6_mean_3judge": 1.9803240740740742,
+      "d7_mean_3judge": 1.9942222222222221,
+      "label": "GLM5.1",
+      "log10_active_or_dense_b": 2.877371345869774,
+      "log10_size_b": 2.877371345869774,
+      "model": "glm-5.1",
+      "role_weighted_composite_3judge": 2.3846581397306394,
+      "size_b": 754.0
+    },
+    {
+      "active_or_dense_b": 13.0,
+      "all_domain_mean_3judge": 2.4992053270803267,
+      "d1_mean_3judge": 4.259006734006734,
+      "d2_mean_3judge": 2.748958333333333,
+      "d3_mean_3judge": 1.914351851851852,
+      "d4_mean_3judge": 1.9761574074074073,
+      "d5_mean_3judge": 2.6306666666666665,
+      "d6_mean_3judge": 1.9796296296296296,
+      "d7_mean_3judge": 1.985666666666667,
+      "label": "DeepSeek V4F",
+      "log10_active_or_dense_b": 1.1139433523068367,
+      "log10_size_b": 2.4533183400470375,
+      "model": "deepseek-v4-flash",
+      "role_weighted_composite_3judge": 2.3735723442760945,
+      "size_b": 284.0
+    },
+    {
+      "active_or_dense_b": 111.0,
+      "all_domain_mean_3judge": 2.4928682058682057,
+      "d1_mean_3judge": 3.7364478114478117,
+      "d2_mean_3judge": 2.5930555555555554,
+      "d3_mean_3judge": 2.0199074074074073,
+      "d4_mean_3judge": 2.2534722222222223,
+      "d5_mean_3judge": 2.7142222222222223,
+      "d6_mean_3judge": 1.9826388888888888,
+      "d7_mean_3judge": 2.150333333333333,
+      "label": "Command A",
+      "log10_active_or_dense_b": 2.0453229787866576,
+      "log10_size_b": 2.0453229787866576,
+      "model": "command-a-03-2025",
+      "role_weighted_composite_3judge": 2.3915092045454545,
+      "size_b": 111.0
+    },
+    {
+      "active_or_dense_b": 10.0,
+      "all_domain_mean_3judge": 2.418997294372294,
+      "d1_mean_3judge": 4.057828282828283,
+      "d2_mean_3judge": 2.6600694444444444,
+      "d3_mean_3judge": 1.789351851851852,
+      "d4_mean_3judge": 1.9664351851851853,
+      "d5_mean_3judge": 2.657111111111111,
+      "d6_mean_3judge": 1.9824074074074072,
+      "d7_mean_3judge": 1.8197777777777775,
+      "label": "Qwen122",
+      "log10_active_or_dense_b": 1.0,
+      "log10_size_b": 2.0863598306747484,
+      "model": "qwen3.5-122b-a10b",
+      "role_weighted_composite_3judge": 2.2874208459595957,
+      "size_b": 122.0
+    },
+    {
+      "active_or_dense_b": 3.0,
+      "all_domain_mean_3judge": 2.3947724867724864,
+      "d1_mean_3judge": 3.787037037037037,
+      "d2_mean_3judge": 2.589583333333333,
+      "d3_mean_3judge": 1.9743055555555555,
+      "d4_mean_3judge": 2.0578703703703707,
+      "d5_mean_3judge": 2.6733333333333333,
+      "d6_mean_3judge": 1.9680555555555554,
+      "d7_mean_3judge": 1.7132222222222224,
+      "label": "Qwen35",
+      "log10_active_or_dense_b": 0.47712125471966244,
+      "log10_size_b": 1.5440680443502757,
+      "model": "qwen3.6-35b-a3b-q8_0",
+      "role_weighted_composite_3judge": 2.269290138888889,
+      "size_b": 35.0
+    },
+    {
+      "active_or_dense_b": 27.0,
+      "all_domain_mean_3judge": 2.384080868205868,
+      "d1_mean_3judge": 3.8496632996632996,
+      "d2_mean_3judge": 2.6482638888888888,
+      "d3_mean_3judge": 1.8314814814814815,
+      "d4_mean_3judge": 2.0430555555555556,
+      "d5_mean_3judge": 2.5853333333333333,
+      "d6_mean_3judge": 1.9608796296296296,
+      "d7_mean_3judge": 1.769888888888889,
+      "label": "Qwen27",
+      "log10_active_or_dense_b": 1.4313637641589874,
+      "log10_size_b": 1.4313637641589874,
+      "model": "qwen3.6-27b-fp8",
+      "role_weighted_composite_3judge": 2.2573508417508417,
+      "size_b": 27.0
+    },
+    {
+      "active_or_dense_b": 128.0,
+      "all_domain_mean_3judge": 2.3823287037037035,
+      "d1_mean_3judge": 4.0,
+      "d2_mean_3judge": 2.638541666666667,
+      "d3_mean_3judge": 1.7597222222222222,
+      "d4_mean_3judge": 1.995138888888889,
+      "d5_mean_3judge": 2.4179999999999997,
+      "d6_mean_3judge": 1.9280092592592593,
+      "d7_mean_3judge": 1.9368888888888887,
+      "label": "Mistral128",
+      "log10_active_or_dense_b": 2.1072099696478683,
+      "log10_size_b": 2.1072099696478683,
+      "model": "mistral-medium-3.5",
+      "role_weighted_composite_3judge": 2.2603600925925926,
+      "size_b": 128.0
+    },
+    {
+      "active_or_dense_b": 12.0,
+      "all_domain_mean_3judge": 2.2796060606060604,
+      "d1_mean_3judge": 2.326094276094276,
+      "d2_mean_3judge": 2.3354166666666667,
+      "d3_mean_3judge": 1.6324074074074073,
+      "d4_mean_3judge": 2.45625,
+      "d5_mean_3judge": 2.9406666666666665,
+      "d6_mean_3judge": 2.1907407407407407,
+      "d7_mean_3judge": 2.0756666666666668,
+      "label": "Gemma12",
+      "log10_active_or_dense_b": 1.0791812460476249,
+      "log10_size_b": 1.0791812460476249,
+      "model": "gemma-4-12b-it-q8_0-llamacpp-a6000",
+      "role_weighted_composite_3judge": 2.2267145791245793,
+      "size_b": 12.0
+    },
+    {
+      "active_or_dense_b": 100.0,
+      "all_domain_mean_3judge": 2.1917665945165945,
+      "d1_mean_3judge": 2.9375420875420875,
+      "d2_mean_3judge": 2.373611111111111,
+      "d3_mean_3judge": 1.7400462962962964,
+      "d4_mean_3judge": 2.129861111111111,
+      "d5_mean_3judge": 2.4715555555555557,
+      "d6_mean_3judge": 1.9270833333333333,
+      "d7_mean_3judge": 1.7626666666666666,
+      "label": "LLaDA100",
+      "log10_active_or_dense_b": 2.0,
+      "log10_size_b": 2.0,
+      "model": "llada2.1-flash",
+      "role_weighted_composite_3judge": 2.105347163299663,
+      "size_b": 100.0
+    },
+    {
+      "active_or_dense_b": 9.0,
+      "all_domain_mean_3judge": 2.0814486531986534,
+      "d1_mean_3judge": 2.9807239057239054,
+      "d2_mean_3judge": 2.19375,
+      "d3_mean_3judge": 1.5810185185185184,
+      "d4_mean_3judge": 1.9083333333333334,
+      "d5_mean_3judge": 2.374888888888889,
+      "d6_mean_3judge": 1.8662037037037038,
+      "d7_mean_3judge": 1.6652222222222222,
+      "label": "Qwen9",
+      "log10_active_or_dense_b": 0.9542425094393249,
+      "log10_size_b": 0.9542425094393249,
+      "model": "qwen3.5-9b",
+      "role_weighted_composite_3judge": 1.9910898569023572,
+      "size_b": 9.0
+    }
+  ]
+}
