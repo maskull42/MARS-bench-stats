@@ -56,7 +56,7 @@ The format follows the conventions of [Keep a Changelog](https://keepachangelog.
 
 ### Notes for citation
 
-The accompanying paper, "As If, Not As Way: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation," cites the v2026.05.07 release at Zenodo DOI [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936). That citation does not change. The v2026.05.10 release is intended for citation in materials produced after the paper was finalized (presentation slides, follow-up work, audit notes); it will be assigned its own Zenodo DOI on release.
+The accompanying paper, "As If, Not As Was: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation," cites the v2026.05.07 release at Zenodo DOI [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936). That citation does not change. The v2026.05.10 release is intended for citation in materials produced after the paper was finalized (presentation slides, follow-up work, audit notes); it will be assigned its own Zenodo DOI on release.
 
 ## [v2026.05.07] — 2026-05-07
 
