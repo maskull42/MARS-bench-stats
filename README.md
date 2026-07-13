@@ -1,6 +1,7 @@
 # MARS-Bench Statistical Replication Package
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20067936.svg)](https://doi.org/10.5281/zenodo.20067936)
+[![Tests](https://github.com/maskull42/MARS-bench-stats/actions/workflows/tests.yml/badge.svg)](https://github.com/maskull42/MARS-bench-stats/actions/workflows/tests.yml)
 
 The repository contains two distinct public snapshots:
 
