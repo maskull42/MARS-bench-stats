@@ -2,7 +2,20 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20067936.svg)](https://doi.org/10.5281/zenodo.20067936)
 
-Current release: **v2026.06.05**. The accompanying paper, "As If, Not As Was: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation," cites v2026.05.07 (Zenodo DOI [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936)). The v2026.06.05 package adds the Gemma 4 12B A6000 run, its completed primary Codex/Claude/DeepSeek judging rows, and fully recalculated two-judge, three-judge, and diagnostic statistics. See `CHANGELOG.md` for the full revision history.
+The repository contains two distinct public snapshots:
+
+- **Frozen paper archive, v2026.05.07:** 14 models and 10,542 release
+  responses. The accompanying paper, "As If, Not As Was: MARS-Bench and the
+  Agentic Audition of LLMs for Marcionite Surrogation," cites this snapshot at
+  Zenodo DOI
+  [10.5281/zenodo.20067936](https://doi.org/10.5281/zenodo.20067936).
+- **Current analysis tag, v2026.06.05:** 15 models and 11,295 release responses.
+  This snapshot adds the Gemma 4 12B A6000 run, its completed primary
+  Codex/Claude/DeepSeek judging rows, and fully recalculated two-judge,
+  three-judge, and diagnostic statistics.
+
+The Zenodo DOI and `CITATION.cff` remain anchored to the frozen v2026.05.07
+paper archive. See `CHANGELOG.md` for the full revision history.
 
 This repository contains the publication-safe data export, statistical code,
 and final measurement outputs for the MARS-Bench agentic digital humanities
