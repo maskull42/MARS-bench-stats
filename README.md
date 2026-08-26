@@ -3,6 +3,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20067936.svg)](https://doi.org/10.5281/zenodo.20067936)
 [![Tests](https://github.com/maskull42/MARS-bench-stats/actions/workflows/tests.yml/badge.svg)](https://github.com/maskull42/MARS-bench-stats/actions/workflows/tests.yml)
 
+**Paper:** ["As If, Not As Was: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation" (PDF)](paper/As-If-Not-As-Was_MARS-Bench.pdf) — A.G. Elrod, presented at the Expert Meeting on Agentic AI and the Humanities, VU Amsterdam, 12 May 2026.
+
 The repository contains two distinct public snapshots:
 
 - **Frozen paper archive, v2026.05.07:** 14 models and 10,542 release
