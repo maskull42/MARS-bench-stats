@@ -5,6 +5,8 @@
 
 **Paper:** ["As If, Not As Was: MARS-Bench and the Agentic Audition of LLMs for Marcionite Surrogation" (PDF)](paper/As-If-Not-As-Was_MARS-Bench.pdf) — A.G. Elrod, presented at the Expert Meeting on Agentic AI and the Humanities, VU Amsterdam, 12 May 2026.
 
+**Slides:** [talk deck, public edition (PDF)](paper/MARS-Bench_talk_public-edition.pdf) — the 12 May 2026 talk, including the post-freeze three-judge re-analysis; two film images are replaced by a citation card in this edition.
+
 The repository contains two distinct public snapshots:
 
 - **Frozen paper archive, v2026.05.07:** 14 models and 10,542 release
